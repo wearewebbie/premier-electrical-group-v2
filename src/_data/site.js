@@ -6,7 +6,7 @@ export default {
     ? "https://www.premierelectricalgroup.co.uk"
     : process.env.CF_PAGES_URL || "http://localhost:8080",
   logo: "",
-  image: "SEO Preview Image Card (1200 x 675 pixels)",
+  image: "/assets/images/website-preview-image.png",
   phone: "+44 28 9756 4046",
   email: "solar@premierelectricalgroup.co.uk",
   social: {
