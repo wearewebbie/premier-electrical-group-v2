@@ -1,0 +1,23 @@
+<nav>
+    <ul>
+        {%- for item in navigation %}
+        {%- set isCurrent = false %}
+        {%- if item.url == '/' %}
+        {%- if page.url == '/' %}
+        {%- set isCurrent = true %}
+        {%- endif %}
+        {%- else %}
+        {%- if page.url.startsWith(item.url) %}
+        {%- set isCurrent = true %}
+        {%- endif %}
+        {%- endif %}
+        <li>
+            <a href="{{ item.url }}" class="
+            {%- if item.type == 'cta' %} text-pink-500{% endif %}
+            {%- if isCurrent %} text-red-500{% endif %}" {%- if isCurrent %} aria-current="page" {% endif %}>
+                {{ item.label }}
+            </a>
+        </li>
+        {%- endfor %}
+    </ul>
+</nav>

@@ -1,0 +1,15 @@
+[
+    {
+        "label": "Home",
+        "url": "/"
+    },
+    {
+        "label": "Link One",
+        "url": "/page-one/"
+    },
+    {
+        "label": "Contact",
+        "url": "/contact/",
+        "type": "cta"
+    }
+]

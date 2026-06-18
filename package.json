@@ -1,0 +1,25 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npx tailwindcss -i ./src/css/styles.css -o ./dist/css/bundle.css --watch --content=./src/**/*.html --content=./src/**/*.njk --content=./src/**/*.js\" \"eleventy --serve\"",
+    "build": "npx tailwindcss -i ./src/css/styles.css -o ./dist/css/bundle.css --minify --content=./src/**/*.html --content=./src/**/*.njk --content=./src/**/*.js && eleventy",
+    "lint": "html-validate \"dist/**/*.html\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@tailwindcss/cli": "^4.1.5",
+    "concurrently": "^9.1.2",
+    "html-validate": "^10.9.0",
+    "tailwindcss": "^4.1.5"
+  },
+  "dependencies": {
+    "@11ty/eleventy-img": "^6.0.4"
+  }
+}

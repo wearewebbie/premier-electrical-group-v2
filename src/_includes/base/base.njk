@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Title -->
+  <title>
+    {%- if title %}{{ title }} | {{ site.title }}{%- else %}{{ site.title }}{%- endif %}
+  </title>
+
+  <!-- Primary Meta -->
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ title or site.title }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  {%- if site.image %}
+  <meta property="og:image" content="{{ site.url }}{{ site.image }}">
+  {%- endif %}
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title or site.title }}">
+  <meta name="twitter:description" content="{{ description or site.description }}">
+  {%- if site.image %}
+  <meta name="twitter:image" content="{{ site.url }}{{ site.image }}">
+  {%- endif %}
+
+  <!-- Icons -->
+  INSERT THE CODE THAT https://realfavicongenerator.net/ GENERATED FOR YOUR SITE HERE
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/bundle.css">
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="/assets/swiper/swiper-bundle.min.css" />
+  <script src="/assets/swiper/swiper-bundle.min.js" defer></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "{{ site.schemaType or 'LocalBusiness' }}",
+  "name": "{{ site.title }}",
+  "url": "{{ site.url }}",
+  "description": "{{ site.description }}"
+  {%- if site.logo %},
+  "logo": "{{ site.url }}{{ site.logo }}"
+  {%- endif %}
+  {%- if site.image %},
+  "image": "{{ site.url }}{{ site.image }}"
+  {%- endif %}
+  {%- if site.phone %},
+  "telephone": "{{ site.phone }}"
+  {%- endif %}
+  {%- if site.email %},
+  "email": "{{ site.email }}"
+  {%- endif %}
+  {%- if site.social and site.social | length %},
+  "sameAs": [
+    {%- for key, value in site.social %}
+      "{{ value }}"{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+  {%- endif %}
+}
+  </script>
+
+</head>
+
+<body>
+
+  <a href="#main-content" class="sr-only focus:not-sr-only">
+    Skip to content
+  </a>
+
+  {% include "header/header.njk" %}
+
+  <main id="main-content">
+    {{- content | safe }}
+  </main>
+
+  {% include "footer/footer.njk" %}
+
+</body>
+
+</html>
