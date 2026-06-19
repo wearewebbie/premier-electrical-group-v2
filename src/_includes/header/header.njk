@@ -1,23 +1,185 @@
-<nav>
-    <ul>
-        {%- for item in navigation %}
-        {%- set isCurrent = false %}
-        {%- if item.url == '/' %}
-        {%- if page.url == '/' %}
-        {%- set isCurrent = true %}
-        {%- endif %}
-        {%- else %}
-        {%- if page.url.startsWith(item.url) %}
-        {%- set isCurrent = true %}
-        {%- endif %}
-        {%- endif %}
-        <li>
-            <a href="{{ item.url }}" class="
-            {%- if item.type == 'cta' %} text-pink-500{% endif %}
-            {%- if isCurrent %} text-red-500{% endif %}" {%- if isCurrent %} aria-current="page" {% endif %}>
-                {{ item.label }}
-            </a>
-        </li>
-        {%- endfor %}
-    </ul>
-</nav>
+{%- macro chevronSvg() %}
+<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 4.5L6 7.5L9 4.5" stroke="#FEFEFE" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
+{%- endmacro %}
+
+<header
+    class="h-[80px] bg-gradient-to-b from-[rgba(0,19,44,0.4)] to-[rgba(0,30,68,0)] fixed top-0 left-0 right-0 z-10 w-full text-white transition-colors duration-300"
+    id="site-header">
+    <div class="mx-auto px-[24px] flex items-center justify-between">
+        <a href="/"><img src="/assets/svgs/logo-white.svg" class="w-[180px]"></a>
+
+        <nav class="hidden lg:flex items-center gap-[20px]">
+            <div class="flex items-center text-sm-light">
+                {% for item in navigation %}
+                {% if item.type != "cta" %}
+                {# Compute isActive for this item #}
+                {% if item.children %}
+                {% set isActive = "" %}
+                {% for child in item.children %}
+                {% if page.url == child.url or page.url == child.url + "/" %}
+                {% set isActive = "true" %}
+                {% endif %}
+                {% endfor %}
+                {% elif item.matchPrefix %}
+                {% if item.url in page.url %}
+                {% set isActive = "true" %}
+                {% else %}
+                {% set isActive = "" %}
+                {% endif %}
+                {% else %}
+                {% if page.url == item.url or page.url == item.url + "/" %}
+                {% set isActive = "true" %}
+                {% else %}
+                {% set isActive = "" %}
+                {% endif %}
+                {% endif %}
+
+                {% if item.children %}
+                <div class="relative group flex items-center">
+                    <button
+                        class="flex items-center gap-[4px] px-[12px] py-[16px] cursor-pointer{% if isActive %} nav-link-active{% endif %}">
+                        <span>{{ item.label }}</span>
+                        <span>{{ chevronSvg() }}</span>
+                    </button>
+                    <div
+                        class="absolute left-[10px] top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible bg-navy-1000 rounded-[4px] {{ item.dropdownWidth or 'w-[240px]' }} border-[1px] border-navy-800 p-[8px]">
+                        {% for child in item.children %}
+                        {% if page.url == child.url or page.url == child.url + "/" %}
+                        {% set childActive = "true" %}
+                        {% else %}
+                        {% set childActive = "" %}
+                        {% endif %}
+                        <a href="{{ child.url }}"
+                            class="block px-[12px] py-[6px]{% if childActive %} nav-link-active{% endif %}">{{
+                            child.label }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% else %}
+                <a href="{{ item.url }}"
+                    class="flex items-center px-[12px] py-[16px]{% if isActive %} nav-link-active{% endif %}">{{
+                    item.label }}</a>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% for item in navigation %}
+            {% if item.type == "cta" %}
+            <a href="{{ item.url }}" class="flex items-center px-[12px] button-primary">{{ item.label }}</a>
+            {% endif %}
+            {% endfor %}
+        </nav>
+
+        <div class="lg:hidden">
+            <button id="menu-btn" class="hamburger" aria-label="Menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="fixed top-[80px] inset-0 flex-col bg-navy-1000 text-white overflow-y-auto z-50
+              opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="flex flex-col gap-[20px] px-[20px]">
+            {% for item in navigation %}
+            {# Compute isActive for this item #}
+            {% if item.children %}
+            {% set isActive = "" %}
+            {% for child in item.children %}
+            {% if page.url == child.url or page.url == child.url + "/" %}
+            {% set isActive = "true" %}
+            {% endif %}
+            {% endfor %}
+            {% elif item.matchPrefix %}
+            {% if item.url in page.url %}
+            {% set isActive = "true" %}
+            {% else %}
+            {% set isActive = "" %}
+            {% endif %}
+            {% else %}
+            {% if page.url == item.url or page.url == item.url + "/" %}
+            {% set isActive = "true" %}
+            {% else %}
+            {% set isActive = "" %}
+            {% endif %}
+            {% endif %}
+
+            {% if item.children %}
+            <div class="flex flex-col gap-[12px]">
+                <span class="flex items-center gap-[4px]{% if isActive %} nav-link-active{% endif %}">
+                    <span>{{ item.label }}</span>
+                    {{ chevronSvg() }}
+                </span>
+                <div class="ml-[20px]">
+                    {% for child in item.children %}
+                    {% if page.url == child.url or page.url == child.url + "/" %}
+                    {% set childActive = "true" %}
+                    {% else %}
+                    {% set childActive = "" %}
+                    {% endif %}
+                    <a href="{{ child.url }}" class="block py-[4px]{% if childActive %} nav-link-active{% endif %}">{{
+                        child.label }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% else %}
+            <a href="{{ item.url }}" class="{% if isActive %}nav-link-active{% endif %}">{{ item.label }}</a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</header>
+
+<script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const siteHeader = document.getElementById("site-header");
+
+    function closeMobileMenu() {
+        menuBtn.classList.remove("open");
+        mobileMenu.classList.remove("opacity-100", "pointer-events-auto");
+        mobileMenu.classList.add("opacity-0", "pointer-events-none");
+        siteHeader?.classList.remove("bg-navy-1000");
+        document.body.classList.remove("overflow-hidden");
+    }
+
+    function toggleMenu() {
+        const isOpen = menuBtn.classList.contains("open");
+        if (isOpen) {
+            closeMobileMenu();
+        } else {
+            menuBtn.classList.add("open");
+            mobileMenu.classList.remove("opacity-0", "pointer-events-none");
+            mobileMenu.classList.add("opacity-100", "pointer-events-auto");
+            siteHeader?.classList.add("bg-navy-1000");
+            document.body.classList.add("overflow-hidden");
+        }
+    }
+
+    menuBtn.addEventListener("click", toggleMenu);
+
+    mobileMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", closeMobileMenu);
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth >= 1024) {
+            closeMobileMenu();
+        }
+    });
+</script>
+
+<script>
+    const header = document.getElementById("site-header");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 0) {
+            header.classList.add("!bg-navy-1000");
+        } else {
+            header.classList.remove("!bg-navy-1000");
+        }
+    });
+</script>

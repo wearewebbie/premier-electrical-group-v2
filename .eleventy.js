@@ -41,6 +41,10 @@ export default function (eleventyConfig) {
         });
     });
 
+    eleventyConfig.addShortcode('ghlForm', function (formUrl) {
+        return `<div class="ghl-form-wrapper"><iframe src="${formUrl}" class="ghl-form-iframe" frameborder="0" scrolling="no"></iframe></div>`;
+    });
+
     eleventyConfig.addFilter("lastModifiedDate", function (filePath) {
         const stats = fs.statSync(filePath);
         return stats.mtime.toISOString().split("T")[0];
@@ -56,13 +60,28 @@ export default function (eleventyConfig) {
         });
     });
 
+    eleventyConfig.addFilter("isoDate", (dateObj) => {
+        if (!dateObj) return "";
+        const d = dateObj instanceof Date ? dateObj : new Date(dateObj);
+        return d.toISOString().slice(0, 10);
+    });
+
+    eleventyConfig.addFilter("formatDate", (dateObj) => {
+        if (!dateObj) return "";
+        const d = dateObj instanceof Date ? dateObj : new Date(dateObj);
+        const day = String(d.getDate()).padStart(2, "0");
+        const month = String(d.getMonth() + 1).padStart(2, "0");
+        const year = d.getFullYear();
+        return `${day}/${month}/${year}`;
+    });
+
+    eleventyConfig.addCollection("posts", (collectionApi) =>
+        collectionApi.getFilteredByTag("posts").sort((a, b) => b.data.date - a.data.date)
+    );
+
     eleventyConfig.addPassthroughCopy("src/css");
     eleventyConfig.addPassthroughCopy("src/js");
-    eleventyConfig.addPassthroughCopy("src/assets/svgs");
-    eleventyConfig.addPassthroughCopy("src/assets/favicon");
-    eleventyConfig.addPassthroughCopy("src/assets/fonts");
-    eleventyConfig.addPassthroughCopy("src/assets/swiper");
-    eleventyConfig.addPassthroughCopy("src/assets/images/website-preview-image.png");
+    eleventyConfig.addPassthroughCopy("src/assets");
 
     return {
         dir: {

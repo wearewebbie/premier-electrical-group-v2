@@ -1,0 +1,129 @@
+---
+layout: base/base.njk
+title: "Blog | Premier Electrical Group – Solar & Electrical Insights NI"
+description: "Stay updated with insights, news and tips from Premier Electrical Group. Explore articles on solar, energy
+efficiency, and electrical services across Northern Ireland."
+---
+
+<section class="relative bg-[url(/assets/images/landing.webp)] bg-no-repeat bg-cover bg-center">
+  <div class="bg-[#001125]/50">
+    <div class="container mx-auto flex items-end min-h-[440px]">
+      <div class="w-full gap-[80px] py-[100px]">
+        <h1 class="heading-semibold text-navy-0">Blog</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-[100px]">
+  <div class="container">
+
+    <ul class="flex flex-col gap-[32px]">
+      {% for post in collections.posts %}
+      <li class="flex flex-col gap-[32px] group">
+        <a href="{{ post.url }}">
+          <div class="flex flex-col lg:flex-row gap-[24px]">
+            <div class="flex-1">
+              <img src="{{ post.data.src }}" class="h-[322px] w-full object-cover" />
+            </div>
+            <div class="flex flex-col justify-between flex-1 gap-[20px]">
+              <div class="flex flex-col gap-[24px]">
+                <h2 class="title-medium text-navy-1000 line-clamp-2">{{ post.data.title }}
+                </h2>
+                <p class="text-lg-regular text-navy-1000/60 line-clamp-4">{{
+                  post.data.preview }}</p>
+              </div>
+              <div class="flex justify-between">
+                <time datetime="{{ post.date | isoDate }}" class="text-sm-light text-navy-1000/60">
+                  {{ post.date | formatDate }}
+                </time>
+                <div class="flex gap-[8px]">
+                  <p class="text-sm-light text-navy-1000">Read More</p>
+                  <svg class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px] text-navy-1000"
+                    viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.66797 7H17.668M17.668 7L11.668 1M17.668 7L11.668 13" stroke="currentColor"
+                      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <hr class="h-[2px] bg-navy-800">
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+
+<section class="bg-navy-1000">
+  <div class="container py-[100px] gap-[64px]">
+    <div class="flex flex-col gap-[64px]">
+      <div class="flex flex-col gap-[40px]">
+        <h2 class="subheading-regular text-cyan-1000">BESPOKE SOLUTIONS</h2>
+        <p class="text-lg-regular text-cyan-0">Custom PV Solar systems for homes, businesses, and farms. Optimising
+          efficiency, savings, and sustainability for every need.</p>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-[12px]">
+        <a href="/domestic"
+          class="px-[24px] py-[32px] rounded-[24px] w-full bg-[url(/assets/images/domesticSquare.webp)] bg-no-repeat bg-cover bg-center bg-opacity-25 text-navy-0 relative group cursor-pointer">
+          <div class="absolute inset-0 card-gradient"></div>
+          <div class="flex flex-col gap-[32px] justify-between h-full relative">
+            <div class="flex flex-col gap-[12px]">
+              <img src="/assets/svgs/domestic.svg" class="w-[32px]" />
+              <div>
+                <p class="text-xs-extralight text-navy-0">Solutions for</p>
+                <p class="title-medium text-navy-0">Domestic</p>
+              </div>
+            </div>
+            <div class="flex gap-[8px]">
+              <p class="text-sm-light text-navy-0">Learn more</p>
+              <img src="/assets/svgs/arrow.svg"
+                class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px]" />
+            </div>
+          </div>
+        </a>
+
+        <a href="/commercial"
+          class="group cursor-pointer px-[24px] py-[32px] rounded-[24px] w-full bg-[url(/assets/images/commercial.webp)] bg-no-repeat bg-cover bg-center text-navy-0 relative">
+          <div class="absolute inset-0 card-gradient"></div>
+          <div class="flex flex-col gap-[32px] justify-between h-full relative">
+            <div class="flex flex-col gap-[12px]">
+              <img src="/assets/svgs/commercial.svg" class="w-[32px]" />
+              <div>
+                <p class="text-xs-extralight text-navy-0">Solutions for</p>
+                <p class="title-medium text-navy-0">Commercial</p>
+              </div>
+            </div>
+            <div class="flex gap-[8px]">
+              <p class="text-sm-light text-navy-0">Learn more</p>
+              <img src="/assets/svgs/arrow.svg"
+                class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px]" />
+            </div>
+          </div>
+        </a>
+
+        <a href="/agriculture"
+          class="px-[24px] py-[32px] rounded-[24px] w-full bg-[url(/assets/images/agriculture.webp)] bg-no-repeat bg-cover bg-center bg-opacity-25 text-navy-0 relative group cursor-pointer">
+          <div class="absolute inset-0 card-gradient"></div>
+          <div class="flex flex-col justify-between h-full relative gap-[32px]">
+            <div class="flex flex-col gap-[12px]">
+              <img src="/assets/svgs/agriculture.svg" class="w-[32px]" />
+              <div>
+                <p class="text-xs-extralight text-navy-0">Solutions for</p>
+                <p class="title-medium text-navy-0">Agriculture</p>
+              </div>
+            </div>
+            <div class="flex gap-[8px]">
+              <p class="text-sm-light text-navy-0">Learn more</p>
+              <img src="/assets/svgs/arrow.svg"
+                class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px]" />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

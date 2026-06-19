@@ -1,15 +1,68 @@
 [
-    {
-        "label": "Home",
-        "url": "/"
-    },
-    {
-        "label": "Link One",
-        "url": "/page-one/"
-    },
-    {
-        "label": "Contact",
-        "url": "/contact/",
-        "type": "cta"
-    }
+  {
+    "label": "Home",
+    "url": "/"
+  },
+  {
+    "label": "About",
+    "dropdownWidth": "w-[240px]",
+    "children": [
+      {
+        "label": "Premier Electrical Group",
+        "url": "/about"
+      },
+      {
+        "label": "Our Team",
+        "url": "/team"
+      },
+      {
+        "label": "Careers",
+        "url": "/careers"
+      }
+    ]
+  },
+  {
+    "label": "Solar Solutions",
+    "dropdownWidth": "w-[270px]",
+    "children": [
+      {
+        "label": "Domestic",
+        "url": "/domestic"
+      },
+      {
+        "label": "Commercial",
+        "url": "/commercial"
+      },
+      {
+        "label": "Agriculture",
+        "url": "/agriculture"
+      },
+      {
+        "label": "Additional Electrical Services",
+        "url": "/extras"
+      }
+    ]
+  },
+  {
+    "label": "Maintenance",
+    "url": "/maintenance"
+  },
+  {
+    "label": "Partner",
+    "url": "/partner"
+  },
+  {
+    "label": "PV Solar Power",
+    "url": "/pv-solar-power"
+  },
+  {
+    "label": "Blog",
+    "url": "/blog",
+    "matchPrefix": true
+  },
+  {
+    "label": "Get in Touch",
+    "url": "/contact",
+    "type": "cta"
+  }
 ]

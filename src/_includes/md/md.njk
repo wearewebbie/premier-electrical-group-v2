@@ -2,8 +2,20 @@
 layout: base/base.njk
 ---
 
+<section class="relative bg-[url(/assets/images/landing.webp)] bg-no-repeat bg-cover bg-center">
+    <div class="bg-[#001125]/50">
+        <div class="container mx-auto">
+            <div class="w-full gap-[80px] py-[100px]">
+                <h1 class="heading-semibold text-navy-0">{{ title }}</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="markdown-isolated">
-    <div class="container py-[100px]">
-        {{ content | safe }}
+    <div class="py-[100px] bg-navy-1000 text-white">
+        <div class="container">
+            {{ content | safe }}
+        </div>
     </div>
 </section>

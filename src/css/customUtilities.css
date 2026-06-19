@@ -1,0 +1,169 @@
+@layer utilities {
+
+    .nav-link {
+        @apply text-navy-0 text-[14px] font-light leading-[20px] tracking-[0];
+    }
+
+    .nav-link-active {
+        @apply text-cyan-1000 text-[14px] font-light leading-[20px] tracking-[0] underline underline-offset-4;
+    }
+
+    .button-primary {
+        @apply py-[12px] px-[16px] bg-linear-to-r from-light-blue-1000 to-dark-blue-1000 hover:from-dark-blue-1000 hover:to-light-blue-1000 transition-colors duration-700 ease-in-out rounded-[4px] text-[14px] font-medium leading-[16px] tracking-[0] text-navy-0;
+    }
+
+    .button-form {
+        @apply py-[12px] px-[16px] bg-linear-to-r from-light-blue-1000 to-dark-blue-1000 rounded-[4px] text-[12px] font-medium leading-[20px] tracking-[0] text-navy-0;
+    }
+
+    .button-outline {
+        @apply py-[12px] px-[16px] rounded-[4px] border-[1px] text-[16px] font-medium leading-[20px] tracking-[0] text-navy-0;
+    }
+
+    .heading-semibold {
+        @apply font-semibold text-[48px] leading-[60px] tracking-[0] lg:text-[72px] lg:leading-[80px];
+    }
+
+    .heading-bold {
+        @apply font-bold tracking-[0] text-[72px] leading-[80px];
+    }
+
+    .subheading-regular {
+        @apply font-normal text-[32px] leading-[40px] tracking-[0] lg:text-[48px] lg:leading-[60px];
+    }
+
+    .title-medium {
+        @apply font-medium text-[18px] leading-[24px] tracking-[0] lg:text-[32px] lg:leading-[40px];
+    }
+
+    .title-regular {
+        @apply font-normal text-[32px] leading-[40px] tracking-[0];
+    }
+
+    .text-lg-semibold {
+        @apply font-semibold tracking-[0] text-[18px] leading-[24px];
+    }
+
+    .text-lg-regular {
+        @apply font-normal text-[14px] leading-[20px] tracking-[0] lg:text-[18px] lg:leading-[24px];
+    }
+
+    .text-lg-light {
+        @apply font-light text-[14px] leading-[20px] tracking-[0] lg:text-[18px] lg:leading-[24px];
+    }
+
+    .text-sm-regular {
+        @apply font-normal tracking-[0] text-[14px] leading-[20px];
+    }
+
+    .text-sm-light {
+        @apply font-light tracking-[0] text-[14px] leading-[20px];
+    }
+
+    .text-xs-medium {
+        @apply font-medium text-[12px] leading-[16px] tracking-[0] lg:text-[24px] lg:leading-[32px];
+    }
+
+    .text-xs-light {
+        @apply font-light text-[12px] leading-[16px] tracking-[0];
+    }
+
+    .text-xs-extralight {
+        @apply font-extralight text-[12px] leading-[16px] tracking-[0];
+    }
+
+    .input-placeholder::placeholder {
+        @apply text-[12px] leading-[16px] font-light tracking-[0] text-navy-400;
+    }
+
+    .option-placeholder {
+        @apply text-[12px] leading-[16px] font-light tracking-[0] text-navy-400;
+    }
+
+    .input-group {
+        @apply flex flex-col gap-[12px];
+    }
+
+    .input,
+    select.input {
+        @apply border-[1px] border-navy-600 rounded-[4px] p-[8px] bg-navy-800;
+    }
+
+    .input-pv-solar {
+        @apply border-[1px] border-navy-400 rounded-[4px] p-[8px] bg-navy-200;
+    }
+
+    .social-icon {
+        @apply p-[7px] border-[1px] rounded-[4px] border-inherit;
+    }
+
+    .card-gradient {
+        background: linear-gradient(0deg, rgba(5, 21, 30, 0.5), rgba(5, 21, 30, 0.5)),
+            linear-gradient(180deg, #05151E 0%, rgba(5, 21, 30, 0) 50%, #05151E 100%);
+    }
+
+    .maintenance-nav-link.active {
+        @apply bg-cyan-1000 text-navy-1000;
+    }
+
+    .hide-time-icon::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+}
+
+/* Hamburger Menu Animation */
+
+.hamburger {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 28px;
+    height: 2px;
+    background: #FEFEFE;
+    border-radius: 2px;
+    transform-origin: center center;
+    transition: transform 320ms cubic-bezier(.2, .8, .2, 1), opacity 160ms ease;
+}
+
+.hamburger .bar:nth-child(1) {
+    transform: translate(-50%, -8px);
+}
+
+.hamburger .bar:nth-child(2) {
+    transform: translate(-50%, 0);
+}
+
+.hamburger .bar:nth-child(3) {
+    transform: translate(-50%, 8px);
+}
+
+.hamburger.open .bar:nth-child(1) {
+    transform: translate(-50%, 0) rotate(45deg);
+}
+
+.hamburger.open .bar:nth-child(2) {
+    transform: translate(-50%, 0) scaleX(.05);
+    opacity: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+    transform: translate(-50%, 0) rotate(-45deg);
+}
+
+.hamburger:focus {
+    outline: 2px solid Highlight;
+    outline-offset: 3px;
+}

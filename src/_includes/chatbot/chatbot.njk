@@ -1,0 +1,201 @@
+<div id="chat-container">
+
+    <button id="open-chat-button"
+        class="bg-linear-to-r from-light-blue-1000 to-dark-blue-1000 h-[55px] w-[55px] fixed bottom-[25px] right-[25px] rounded-full cursor-pointer flex justify-center items-center shadow-lg shadow-black/30 z-50">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M31.2873 17.2623C31.2923 19.2099 30.8373 21.1312 29.9592 22.8696C28.9181 24.9527 27.3175 26.7049 25.3368 27.9298C23.3562 29.1547 21.0735 29.804 18.7447 29.8049C16.7971 29.8099 14.8759 29.3549 13.1374 28.4768L4.72656 31.2805L7.53019 22.8696C6.65211 21.1312 6.19708 19.2099 6.20216 17.2623C6.20306 14.9335 6.85232 12.6509 8.07722 10.6702C9.30212 8.68948 11.0543 7.08893 13.1374 6.0478C14.8759 5.16972 16.7971 4.71469 18.7447 4.71977H19.4825C22.5582 4.88945 25.4631 6.18763 27.6413 8.36575C29.8194 10.5439 31.1176 13.4489 31.2873 16.5245V17.2623Z"
+                stroke="#101828" stroke-width="2.95119" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </button>
+
+    <div id="chat-window"
+        class="hidden fixed z-50 bottom-[0px] md:bottom-[85px] md:right-[25px] w-[calc(100%-20px)] md:w-[360px] h-[calc(100%-20px)] md:h-[500px] bg-white border-navy-400 border-[2px] rounded-[8px] p-[20px] flex flex-col ml-[10px] md:ml-[0px] mb-[10px] md:mb-[0px]">
+
+        <!-- Close button -->
+        <div class="ml-auto cursor-pointer p-[12px]" id="close-chat-button">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M11.0011 1L6.05131 5.94975M6.05131 5.94975L1.10156 10.8995M6.05131 5.94975L1.10156 1M6.05131 5.94975L11.0011 10.8995"
+                    stroke="#98A2B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+
+        <!-- Scrollable chat content -->
+        <div id="chat-content" class="flex flex-col gap-[10px] flex-1 overflow-y-auto">
+
+            <!-- Messages -->
+            <div id="chat-messages" class="flex flex-col gap-[10px]">
+                <div class="flex flex-col gap-[12px] items-center">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M31.2873 17.2623C31.2923 19.2099 30.8373 21.1312 29.9592 22.8696C28.9181 24.9527 27.3175 26.7049 25.3368 27.9298C23.3562 29.1547 21.0735 29.804 18.7447 29.8049C16.7971 29.8099 14.8759 29.3549 13.1374 28.4768L4.72656 31.2805L7.53019 22.8696C6.65211 21.1312 6.19708 19.2099 6.20216 17.2623C6.20306 14.9335 6.85232 12.6509 8.07722 10.6702C9.30212 8.68948 11.0543 7.08893 13.1374 6.0478C14.8759 5.16972 16.7971 4.71469 18.7447 4.71977H19.4825C22.5582 4.88945 25.4631 6.18763 27.6413 8.36575C29.8194 10.5439 31.1176 13.4489 31.2873 16.5245V17.2623Z"
+                            stroke="#101828" stroke-width="2.95119" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <div class="text-center" id="intro-message">
+                        <p class="text-sm-light">Hello, Have a question?</p>
+                        <p class="text-sm-light">Select a prompt from the list below to get started</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Questions -->
+            <div class="flex flex-col gap-[4px] mt-2" id="chat-questions">
+                {% for question in chatbotQuestions %}
+                <button
+                    class="question-btn flex gap-[10px] items-center border-[1px] border-navy-200 rounded-[4px] px-[16px] py-[10px] cursor-pointer text-left w-full"
+                    data-answer="{{ question.answer }}">
+                    {{ question.icon | safe }}
+                    <p class="text-sm-light">{{ question.text }}</p>
+                </button>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const openButton = document.getElementById("open-chat-button");
+    const closeButton = document.getElementById("close-chat-button");
+    const windowEl = document.getElementById("chat-window");
+    const messagesEl = document.getElementById("chat-messages");
+    const questionsEl = document.getElementById("chat-questions");
+    const chatContent = document.getElementById("chat-content");
+
+    const introMessageHtml = `
+<div class="flex flex-col gap-[12px] items-center" id="intro-message">
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M31.2873 17.2623C31.2923 19.2099 30.8373 21.1312 29.9592 22.8696C28.9181 24.9527 27.3175 26.7049 25.3368 27.9298C23.3562 29.1547 21.0735 29.804 18.7447 29.8049C16.7971 29.8099 14.8759 29.3549 13.1374 28.4768L4.72656 31.2805L7.53019 22.8696C6.65211 21.1312 6.19708 19.2099 6.20216 17.2623C6.20306 14.9335 6.85232 12.6509 8.07722 10.6702C9.30212 8.68948 11.0543 7.08893 13.1374 6.0478C14.8759 5.16972 16.7971 4.71469 18.7447 4.71977H19.4825C22.5582 4.88945 25.4631 6.18763 27.6413 8.36575C29.8194 10.5439 31.1176 13.4489 31.2873 16.5245V17.2623Z"
+            stroke="#101828" stroke-width="2.95119" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <div class="text-center">
+        <p class="text-sm-light">Hello, Have a question?</p>
+        <p class="text-sm-light">Select a prompt from the list below to get started</p>
+    </div>
+</div>
+`;
+
+    // Store original questions to restore on start over
+    const originalQuestionsHtml = questionsEl.innerHTML;
+
+    const lockBodyScroll = () => document.body.style.overflow = 'hidden';
+    const unlockBodyScroll = () => document.body.style.overflow = '';
+
+    // Open chat
+    openButton.addEventListener("click", () => {
+        windowEl.classList.toggle("hidden");
+        if (!windowEl.classList.contains("hidden")) {
+            if (window.innerWidth < 768) lockBodyScroll(); // mobile locks body scroll
+        } else {
+            unlockBodyScroll();
+        }
+    });
+
+    // Close chat
+    closeButton.addEventListener("click", () => {
+        windowEl.classList.add("hidden");
+        unlockBodyScroll();
+    });
+
+    // Prevent touch scrolling from scrolling body on mobile
+    chatContent.addEventListener('touchmove', e => e.stopPropagation(), { passive: false });
+
+    // Question click handler
+    function questionClickHandler(btn) {
+        const introMessage = document.getElementById("intro-message");
+        if (introMessage) introMessage.remove();
+
+        const question = btn.innerText.trim();
+        const answer = btn.dataset.answer;
+
+        // Remove clicked question
+        btn.remove();
+
+        // User question bubble
+        messagesEl.innerHTML += `<div class="self-end bg-blue-500 text-white rounded-[4px] px-[16px] py-[10px] max-w-[80%] text-sm-light">${question}</div>`;
+        // Answer bubble
+        messagesEl.innerHTML += `<div class="self-start text-black rounded-[4px] px-[16px] py-[10px] max-w-[80%] text-sm-light border-[1px] border-navy-200">${answer}</div>`;
+        // Follow-up Yes/No
+        messagesEl.innerHTML += `
+        <div class="self-start text-black rounded-[4px] px-[16px] py-[10px] max-w-[80%] text-sm-light border-[1px] border-navy-200">
+            Do you have another question?
+        </div>
+        <div class="flex gap-[4px]" id="follow-up-buttons">
+            <button id="yes-btn" class="flex gap-[10px] items-center p-[8px] rounded-[4px] border-[1px] border-navy-200 text-sm-light cursor-pointer">Yes</button>
+            <button id="no-btn" class="flex gap-[10px] items-center p-[8px] rounded-[4px] border-[1px] border-navy-200 text-sm-light cursor-pointer">No</button>
+        </div>`;
+
+        questionsEl.classList.add("hidden");
+
+        chatContent.scrollTo({
+            top: chatContent.scrollHeight,
+            behavior: 'smooth'
+        });
+
+        // Yes handler
+        document.getElementById("yes-btn").addEventListener("click", e => {
+            e.target.closest("#follow-up-buttons").remove();
+            messagesEl.innerHTML += `<div class="self-end bg-blue-500 text-white rounded-lg px-3 py-2 max-w-[80%] text-sm-light">Yes</div>`;
+
+            const remainingQuestions = questionsEl.querySelectorAll(".question-btn");
+            if (remainingQuestions.length > 0) {
+                questionsEl.classList.remove("hidden");
+            } else {
+                // All questions asked
+                messagesEl.innerHTML += `
+                <div class="self-start text-black rounded-[4px] px-[16px] py-[10px] max-w-[80%] text-sm-light border-[1px] border-navy-200">
+                    Oops! Looks like you have asked all our questions!
+                </div>
+                <div class="flex justify-start mt-2">
+                    <button id="start-over-btn" class="flex gap-[10px] items-center p-[8px] rounded-[4px] border-[1px] border-navy-200 text-sm-light cursor-pointer">Start Over</button>
+                </div>`;
+                attachStartOver();
+            }
+
+            chatContent.scrollTo({
+                top: chatContent.scrollHeight,
+                behavior: 'smooth'
+            });
+        });
+
+        // No handler
+        document.getElementById("no-btn").addEventListener("click", e => {
+            e.target.closest("#follow-up-buttons").remove();
+            messagesEl.innerHTML += `
+                <div class="self-end bg-blue-500 text-white rounded-[4px] px-3 py-2 text-sm-light max-w-[80%]">No</div>
+                <div class="self-start text-black rounded-[4px] px-[16px] py-[10px] max-w-[80%] text-sm-light border-[1px] border-navy-200">Thanks! Feel free to ask later.</div>
+                <div class="flex justify-start">
+                    <button id="start-over-btn" class="flex gap-[10px] items-center p-[8px] rounded-[4px] border-[1px] border-navy-200 text-sm-light cursor-pointer">Start Over</button>
+                </div>`;
+            attachStartOver();
+
+            chatContent.scrollTo({
+                top: chatContent.scrollHeight,
+                behavior: 'smooth'
+            });
+
+        });
+    }
+
+    // Attach initial question handlers
+    document.querySelectorAll(".question-btn").forEach(btn => btn.addEventListener("click", () => questionClickHandler(btn)));
+
+    // Start Over function
+    function attachStartOver() {
+        document.getElementById("start-over-btn").addEventListener("click", () => {
+            messagesEl.innerHTML = introMessageHtml;
+            questionsEl.innerHTML = originalQuestionsHtml;
+            questionsEl.classList.remove("hidden");
+            chatContent.scrollTop = 0;
+            document.querySelectorAll(".question-btn").forEach(btn => btn.addEventListener("click", () => questionClickHandler(btn)));
+        });
+    }
+
+    // Desktop scroll lock only when hovering
+    windowEl.addEventListener('mouseenter', () => { if (window.innerWidth >= 768) lockBodyScroll(); });
+    windowEl.addEventListener('mouseleave', () => { if (window.innerWidth >= 768) unlockBodyScroll(); });
+
+</script>

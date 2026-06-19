@@ -1,0 +1,102 @@
+<section class="min-h-screen flex flex-col justify-center bg-linear-to-b from-slate-300 to-white bg-size-[100%_60%] overflow-hidden" data-animate="solar-installation-section">
+  <div class="container mx-auto pt-20 pb-4">
+    <div class="relative perspective-[1000px]">
+      <div class="" data-animate="house-view">
+        <img src="/assets/images/3d-scene/house.webp" width="944" height="531" class="w-full" loading="eager" fetchpriority="high" alt="">
+        
+        <div data-animate="legend-wrap_solar-panels" class="absolute top-[18%] right-[72%] flex flex-row items-center text-[clamp(0vw,1.25vw,0.875rem)] text-white text-nowrap drop-shadow-sm drop-shadow-black/60 z-20">
+          <div class="bg-linear-to-bl font-medium border border-[.125em] from-cyan-500 to-blue-500 px-[0.75em] py-[0.125em] rounded-full" data-animate="legend-label">Solar Panels</div>
+          <div class="bg-white w-[6em] h-[0.1em]" data-animate="legend-line"></div>
+          <div class="rounded-full border border-current p-[0.25em]" data-animate="legend-dot">
+            <div class="bg-white rounded-full w-[0.5em] h-[0.5em]" data-animate="legend-dot-inner"></div>
+          </div>
+        </div>
+
+        <div class="absolute top-[18.5%] left-[25%] w-[24%] h-[20%] flex space-between items-start perspective-[1000px] drop-shadow-sm drop-shadow-black/50" data-animate="solar-panels">
+          <img src="/assets/images/3d-scene/solar-panel-dark.webp" width="54" height="107" class="w-[24%] rotate-x-[66deg] origin-top" alt="">
+          <img src="/assets/images/3d-scene/solar-panel-dark.webp" width="54" height="107" class="w-[24%] rotate-x-[66deg] origin-top mr-auto" alt="">
+          <img src="/assets/images/3d-scene/solar-panel-dark.webp" width="54" height="107" class="w-[24%] rotate-x-[66deg] origin-top" alt="">
+          <img src="/assets/images/3d-scene/solar-panel-dark.webp" width="54" height="107" class="w-[24%] rotate-x-[66deg] origin-top" alt="">
+        </div>
+        <div class="absolute bottom-0 left-[12%] w-[32.25%]" data-animate="van">
+          <img src="/assets/images/3d-scene/van.webp" width="304" height="171" class="w-full" loading="eager" fetchpriority="high" alt="">
+          <img src="/assets/images/3d-scene/van-tyre.webp" width="35" height="35" class="absolute bottom-[21%] left-[19%] w-[11.5%] -translate-x-1/2 translate-y-1/2" data-animate="van-tyre" alt="">
+          <img src="/assets/images/3d-scene/van-tyre.webp" width="35" height="35" class="absolute bottom-[21%] left-[81%] w-[11.5%] -translate-x-1/2 translate-y-1/2" data-animate="van-tyre" alt="">
+        </div>
+      </div>
+      
+      <div class="absolute top-0 left-0 w-full h-full z-10 perspective-[1000px] invisible opacity-0" data-animate="garage-view">
+        <img src="/assets/images/3d-scene/garage-view.webp" width="944" height="531" class="w-full scale-[1.4] origin-[80%_80%]" loading="eager" fetchpriority="high" alt="">
+
+        <div class="absolute bottom-[38%] right-[27%] w-[10%] drop-shadow-[10px_5px_10px_rgba(0,0,0,0.25)]" data-animate="chargers">
+          <img src="/assets/images/3d-scene/chargers.webp" width="94" height="106" class="w-full" alt="">
+        </div>
+  
+        <div data-animate="legend-wrap" class="absolute top-[50.5%] right-[35%] flex flex-row items-center text-[clamp(0vw,1.25vw,0.875rem)] text-white text-nowrap drop-shadow-sm drop-shadow-black/60 z-20">
+          <div class="bg-linear-to-bl font-medium border border-[.125em] from-cyan-500 to-blue-500 px-[0.75em] py-[0.125em] rounded-full" data-animate="legend-label">Inverter</div>
+          <div class="bg-white w-[3em] h-[0.1em]" data-animate="legend-line"></div>
+          <div class="rounded-full border border-current p-[0.25em]" data-animate="legend-dot">
+            <div class="bg-white rounded-full w-[0.5em] h-[0.5em]" data-animate="legend-dot-inner"></div>
+          </div>
+        </div>
+  
+        <div data-animate="legend-wrap" class="absolute top-[56%] right-[30%] flex flex-row items-center text-[clamp(0vw,1.25vw,0.875rem)] text-white text-nowrap drop-shadow-sm drop-shadow-black/60 z-20">
+          <div class="bg-linear-to-bl font-medium border border-[.125em] from-cyan-500 to-blue-500 px-[0.75em] py-[0.125em] rounded-full" data-animate="legend-label">Battery</div>
+          <div class="bg-white w-[6em] h-[0.1em]" data-animate="legend-line"></div>
+          <div class="rounded-full border border-current p-[0.25em]" data-animate="legend-dot">
+            <div class="bg-white rounded-full w-[0.5em] h-[0.5em]" data-animate="legend-dot-inner"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const solarInstallationSection = document.querySelector('[data-animate="solar-installation-section"]');
+    const houseView = '[data-animate="house-view"]';
+    const solarPanels = '[data-animate="solar-panels"]';
+    const solarPanelsLegendWrap = '[data-animate="legend-wrap_solar-panels"]';
+    const van = '[data-animate="van"]';
+    const vanTyres = '[data-animate="van-tyre"]';
+    const garageView = '[data-animate="garage-view"]';
+    const garageViewLegendWrap = garageView + ' [data-animate="legend-wrap"]';
+    const chargers = '[data-animate="chargers"]';
+
+    const tl = gsap.timeline(
+      {
+        scrollTrigger: {
+          trigger: solarInstallationSection,
+          start: "center center",
+          end: "+=250%",
+          pin: true,
+          scrub: 1,
+        }
+      }
+    );
+
+    tl.from(van, {autoAlpha: 0, duration: 0.25})
+      .from(van, {left: "100%", duration: 1, ease: "power2.out"}, "<")
+      .to(vanTyres, {rotation: -720, ease: "linear", duration: 1, ease: "power2.out"}, "<")
+      .from(solarPanels, {y: "-5%", opacity: 0, duration: 0.5, ease: "power2.out"}, "+=0.25")
+      .from(solarPanelsLegendWrap+" [data-animate='legend-dot']", {scale: 0, duration: 0.25})
+      .from(solarPanelsLegendWrap+" [data-animate='legend-line']", {scale: 0, transformOrigin:"center right", duration: 0.25, ease: "none"})
+      .from(solarPanelsLegendWrap+" [data-animate='legend-label']", {opacity: 0, duration: 0.25})
+      .to(houseView, {scale: 2.1, transformOrigin: "80% 90%", rotateY: "30", duration: 1}, "+=0.5")
+      .fromTo(garageView, {autoAlpha: 0, scale: 0.7, transformOrigin: "80% 90%"}, {autoAlpha:1, scale: 1, duration: 1}, "<0.25")
+      .to(houseView, {autoAlpha: 0, duration: 0.75}, "<")
+      .fromTo(chargers, {y: "10%", opacity: 0}, {y: 0, opacity: 1, duration: 1, ease: "power2.out"}, "-=0.25")
+      .from(garageViewLegendWrap+" [data-animate='legend-dot']", {scale: 0, duration: 0.25})
+      .from(garageViewLegendWrap+" [data-animate='legend-line']", {scale: 0, transformOrigin:"center right", duration: 0.25, ease: "none"})
+      .from(garageViewLegendWrap+" [data-animate='legend-label']", {opacity: 0, duration: 0.25})
+
+      .to(garageViewLegendWrap, {opacity: 0, duration: 0.25}, "+=1")
+      .to(chargers, {opacity: 0, duration: 0.5, ease: "power2.out"})
+      .to(houseView, {autoAlpha: 1, duration: 0.75}, "<0.25")
+      .to(garageView, {autoAlpha: 0, scale: 0.7, transformOrigin: "80% 90%", duration: 1}, "<")
+      .to(houseView, {scale: 1, rotateY: 0, duration: 2}, "<")
+      .to(solarPanelsLegendWrap, {autoAlpha: 0, duration: 0.25}, "<")
+      .to({}, {duration: 1});
+  });
+</script>

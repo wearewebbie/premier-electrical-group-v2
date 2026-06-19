@@ -1,0 +1,48 @@
+---
+layout: base/base.njk
+title: Success
+---
+
+<section class="relative bg-[url(/assets/images/landing.webp)] bg-no-repeat bg-cover bg-center">
+    <div class="bg-[#001125]/50">
+        <div class="container flex items-end min-h-[440px]">
+            <div class="w-full pt-[184px] pb-[100px] lg:gap-[10px] flex flex-col items-start">
+                <h1 class="title-regular text-navy-0">Success</h1>
+                <h2 class="heading-semibold text-navy-0">Submission Sent</h2>
+                <a href="/" class="flex gap-[8px] mt-[20px] group cursor-pointer">
+                    <div class="text-lg-regular text-navy-0">Back to Home</div>
+                    <img src="/assets/svgs/arrow.svg"
+                        class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px]" />
+                </a>
+            </div>
+        </div>
+
+    </div>
+    </div>
+</section>
+
+<script>
+    function fireConversionIfAllowed() {
+        if (
+            window.Cookiebot &&
+            Cookiebot.consent &&
+            Cookiebot.consent.marketing
+        ) {
+            const params = new URLSearchParams(window.location.search);
+            const formType = params.get('formType');
+
+            if (formType !== 'newsletter' && typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-18008034566/MCxkCLDKs4YcEIaa84pD'
+                });
+            }
+        }
+    }
+
+    window.addEventListener('CookiebotOnLoad', fireConversionIfAllowed);
+    window.addEventListener('CookiebotOnAccept', fireConversionIfAllowed);
+
+    if (window.Cookiebot?.consent?.marketing) {
+        fireConversionIfAllowed();
+    }
+</script>

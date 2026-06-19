@@ -1,10 +1,162 @@
 ---
 layout: base/base.njk
-title: ""
-description: ""
+title: "Contact Us | Premier Electrical Group – Solar & Electrical Solutions NI"
+description: "Get in touch with Premier Electrical Group for specialist solar and electrical services across Northern
+Ireland. Reach our team today and let us power your future."
 ---
 
-<section>
-    </br>
-    <h1>This is to showcase how the cta link is highlighted in the nav</h1>
+<style>
+  .ghl-form-wrapper {
+    width: 100%;
+    position: relative;
+  }
+
+  .ghl-form-iframe {
+    width: 100%;
+    border: none;
+    display: block;
+    min-height: 400px;
+  }
+</style>
+
+<section class="relative bg-[url(/assets/images/landing.webp)] bg-no-repeat bg-cover bg-center">
+  <div class="bg-[#001125]/50">
+    <div class="container mx-auto flex items-end min-h-[440px]">
+      <div class="w-full gap-[80px] py-[100px]">
+        <h1 class="heading-semibold text-navy-0">Contact us</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy-1000">
+  <div class="container">
+    <div class="flex flex-col lg:flex-row gap-[40px] py-[100px]">
+      {% ghlForm "https://app.premierelectricalgroup.co.uk/widget/form/EOdQKvRZP5PGGH8qzQ1B" %}
+      <div class="w-full h-px bg-gray-400 lg:w-px lg:h-auto lg:self-stretch"></div>
+      <div class="flex flex-col gap-[32px]">
+        <div class="flex flex-col gap-[12px]">
+          <p class="text-xs-extralight text-navy-0">Hours</p>
+          <div>
+            <p class="text-sm-regular text-cyan-1000">Monday - Friday</p>
+            <p class="text-sm-regular text-cyan-1000">9.00am - 5.00pm</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-[12px]">
+          <p class="text-xs-extralight text-navy-0">Phone</p>
+          <p class="text-sm-regular text-cyan-1000">028 9756 4046 (UK)</p>
+          <p class="text-sm-regular text-cyan-1000">+353 (89) 479 8529 (ROI)</p>
+        </div>
+
+        <div class="flex flex-col gap-[12px]">
+          <p class="text-xs-extralight text-navy-0">Email</p>
+          <p class="text-sm-regular text-cyan-1000">solar@premierelectricalgroup.co.uk</p>
+        </div>
+
+        <div class="flex flex-col gap-[12px]">
+          <p class="text-xs-extralight text-navy-0">Location</p>
+          <div>
+            <p class="text-sm-regular text-cyan-1000">Unit 7</p>
+            <p class="text-sm-regular text-cyan-1000">81 Dromore Road</p>
+            <p class="text-sm-regular text-cyan-1000">Ballynahinch</p>
+            <p class="text-sm-regular text-cyan-1000">BT24 8HS</p>
+          </div>
+          <div class="w-[300px] h-[200px] rounded-[4px] overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40330.98315161811!2d-5.94692727203794!3d54.41136292666905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4861109e9151a3cd%3A0x16453535a9f2a004!2sPremier%20Electrical%20Group%20Limited!5e0!3m2!1sen!2slk!4v1756817934869!5m2!1sen!2slk"
+              class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-[12px]">
+          <p class="text-xs-extralight text-navy-0">Socials</p>
+          <div class="flex gap-[4px]">
+            <a href="https://www.instagram.com/premierelectricalgrouplimited/">
+              <img class="social-icon text-cyan-1000" src="/assets/svgs/instagram.svg" />
+            </a>
+            <a href="https://uk.linkedin.com/company/premier-electrical-group-limited">
+              <img class="social-icon text-cyan-1000" src="/assets/svgs/linkedIn.svg" />
+            </a>
+            <a href="https://www.facebook.com/Premierelectricalgrouplimited/">
+              <img class="social-icon text-cyan-1000" src="/assets/svgs/facebook.svg" />
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</section>
+
+<section class="bg-navy-0">
+  <div class="container py-[100px] gap-[64px]">
+    <div class="flex flex-col gap-[64px]">
+      <div class="flex flex-col gap-[40px]">
+        <h2 class="subheading-regular text-dark-blue-1000">BESPOKE SOLUTIONS</h2>
+        <p class="text-lg-regular text-navy-1000">Custom PV Solar systems for homes, businesses, and farms. Optimising
+          efficiency, savings, and sustainability for every need.</p>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-[12px]">
+        <a href="/domestic"
+          class="px-[24px] py-[32px] rounded-[24px] w-full bg-[url(/assets/images/domesticSquare.webp)] bg-no-repeat bg-cover bg-center bg-opacity-25 text-navy-0 relative group cursor-pointer">
+          <div class="absolute inset-0 card-gradient rounded-[24px]"></div>
+          <div class="flex flex-col gap-[32px] justify-between h-full relative">
+            <div class="flex flex-col gap-[12px]">
+              <img src="/assets/svgs/domestic.svg" class="w-[32px]" />
+              <div>
+                <p class="text-xs-extralight text-navy-0">Solutions for</p>
+                <p class="title-medium text-navy-0">Domestic</p>
+              </div>
+            </div>
+            <div class="flex gap-[8px]">
+              <div class="text-sm-light text-navy-0">Learn more</div>
+              <img src="/assets/svgs/arrow.svg"
+                class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px]" />
+            </div>
+          </div>
+        </a>
+
+        <a href="/commercial"
+          class="px-[24px] py-[32px] rounded-[24px] w-full bg-[url(/assets/images/commercial.webp)] bg-no-repeat bg-cover bg-center text-navy-0 relative group cursor-pointer">
+          <div class="absolute inset-0 card-gradient rounded-[24px]"></div>
+          <div class="flex flex-col gap-[32px] justify-between h-full relative">
+            <div class="flex flex-col gap-[12px]">
+              <img src="/assets/svgs/commercial.svg" class="w-[32px]" />
+              <div>
+                <p class="text-xs-extralight text-navy-0">Solutions for</p>
+                <p class="title-medium text-navy-0">Commercial</p>
+              </div>
+            </div>
+            <div class="flex gap-[8px]">
+              <div class="text-sm-light text-navy-0">Learn more</div>
+              <img src="/assets/svgs/arrow.svg"
+                class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px]" />
+            </div>
+          </div>
+        </a>
+
+        <a href="/agriculture"
+          class="px-[24px] py-[32px] rounded-[24px] w-full bg-[url(/assets/images/agriculture.webp)] bg-no-repeat bg-cover bg-center bg-opacity-25 text-navy-0 relative group cursor-pointer">
+          <div class="absolute inset-0 card-gradient rounded-[24px]"></div>
+          <div class="flex flex-col gap-[32px] justify-between h-full relative">
+            <div class="flex flex-col gap-[12px]">
+              <img src="/assets/svgs/agriculture.svg" class="w-[32px]" />
+              <div>
+                <p class="text-xs-extralight text-navy-0">Solutions for</p>
+                <p class="title-medium text-navy-0">Agriculture</p>
+              </div>
+            </div>
+            <div class="flex gap-[8px]">
+              <div class="text-sm-light text-navy-0">Learn more</div>
+              <img src="/assets/svgs/arrow.svg"
+                class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px]" />
+            </div>
+          </div>
+        </a>
+      </div>
+      <div>
+      </div>
+    </div>
 </section>

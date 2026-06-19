@@ -78,9 +78,20 @@
 }
   </script>
 
+  <!-- Custom Scripts -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="fc068b27-7c86-460d-bf59-77ebe2326cf6"
+    data-blockingmode="auto" type="text/javascript"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18008034566"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'AW-18008034566');
+  </script>
+
 </head>
 
-<body>
+<body class="scroll-smooth">
 
   <a href="#main-content" class="sr-only focus:not-sr-only">
     Skip to content
@@ -94,6 +105,22 @@
 
   {% include "footer/footer.njk" %}
 
+  {% include "chatbot/chatbot.njk" %}
+
 </body>
+
+<!-- Custom Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/countup.js@2.9.0/dist/countUp.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/embla-carousel@8.1.6/embla-carousel.umd.js"></script>
+<script>function loadScript(a) { var b = document.getElementsByTagName("head")[0], c = document.createElement("script"); c.type = "text/javascript", c.src = "https://tracker.metricool.com/resources/be.js", c.onreadystatechange = a, c.onload = a, b.appendChild(c) } loadScript(function () { beTracker.t({ hash: "6af774161c1092e03ed8c2d136c07fc0" }) });</script>
+<script>
+  document.querySelectorAll('#redirect').forEach(input => {
+    input.value = `${window.location.origin}/success`;
+  });
+</script>
+<script src="https://link.msgsndr.com/js/form_embed.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 
 </html>

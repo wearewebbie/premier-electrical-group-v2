@@ -1,0 +1,73 @@
+{
+  "accordionItems": [
+    {
+      "title": "Who We Are.",
+      "subtitle": "Your local Experts in Solar Energy & Electrical Services",
+      "content": [
+        "At Premier Electrical Group Limited, relationships are the foundation of our company ethos. We prioritise fostering meaningful connections within our community, valuing each individual's unique contributions and perspectives.",
+        "Whether it's with our clients, employees, or partners, we believe that strong relationships form the foundation of our shared success and growth."
+      ]
+    },
+    {
+      "title": "What We Do.",
+      "subtitle": "End-to-End Renewable Solutions Backed by Decades of Expertise",
+      "content": [
+        "We specialise in the design, supply, and installation of solar PV systems, battery storage, EV chargers, and more across the <span class=\"text-lg-semibold text-light-blue-600\">domestic, commercial, and agricultural</span> sectors. From the initial consultation through to installation and ongoing maintenance, we're here to make renewable energy simple and accessible for every customer.",
+        "Every project is delivered with care, precision, and a genuine commitment to helping you take charge of your energy use."
+      ]
+    },
+    {
+      "title": "Why We Do It.",
+      "subtitle": "Making Green Energy Simple, Reliable & Accessible",
+      "content": [
+        "Premier Electrical Group began with a belief: that <span class=\"text-lg-semibold text-light-blue-600\">renewable energy should be built on trust, not just technology</span>. We saw a gap in the market for honest, expert-led solar services that put people first.",
+        "Our mission has always been to help customers embrace clean energy with confidence. Delivering solutions that are not only better for the planet, but better for their homes, businesses, and communities.",
+        "We're proud to say we were among the first to bring solar to Northern Ireland, and decades later, we're still leading the charge."
+      ]
+    },
+    {
+      "title": "Where Can You Find Us?",
+      "subtitle": "Serving Homes, Farms, & Businesses Across Northern Ireland",
+      "content": [
+        "From our base in Ballynahinch, we install solar panels and renewable systems across all Northern Ireland, from rural farm sites to busy commercial buildings and residential homes.",
+        "Wherever you are, we're your local experts - providing friendly, honest advice and dependable service every step of the way."
+      ]
+    },
+    {
+      "title": "Why Choose Premier Electrical Group?",
+      "subtitle": "Northern Ireland's Longest-Running Solar Installers",
+      "items": [
+        {
+          "svg": "<img src=\"/assets/svgs/gridIcon1.svg\" alt=\"\" />",
+          "title": "Established in 1997",
+          "description": "Over two decades of hands-on experience"
+        },
+        {
+          "svg": "<img src=\"/assets/svgs/gridIcon2.svg\" alt=\"\" />",
+          "title": "Industry Pioneers",
+          "description": "One of the First Solar Installers in NI"
+        },
+        {
+          "svg": "<img src=\"/assets/svgs/gridIcon3.svg\" alt=\"\" />",
+          "title": "Locally Based",
+          "description": "We're your neighbours, not just your contractors"
+        },
+        {
+          "svg": "<img src=\"/assets/svgs/gridIcon4.svg\" alt=\"\" />",
+          "title": "Fully In-House Team",
+          "description": "No outsourcing, just skilled local professionals"
+        },
+        {
+          "svg": "<img src=\"/assets/svgs/gridIcon5.svg\" alt=\"\" />",
+          "title": "Confidence in every install",
+          "description": "2-Year Workmanship Warranty"
+        },
+        {
+          "svg": "<img src=\"/assets/svgs/gridIcon6.svg\" alt=\"\" />",
+          "title": "People-First Values",
+          "description": "Built on relationships, kindness, and expertise"
+        }
+      ]
+    }
+  ]
+}

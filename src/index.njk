@@ -1,15 +1,228 @@
 ---
 layout: base/base.njk
-title: "Hello World"
-description: "Hello"
-permalink: index.html
+title: "Premier Electrical Group | Expert Solar & Electrical Services NI"
+description: "Premier Electrical Group provides professional solar and electrical solutions across Northern Ireland for
+homes and businesses. Power your future today."
 ---
-<section>
-    </br>
-    <h1>Hello World!</h1>
-    <p>This is a sample page to demonstrate the use of the image shortcode.</p>
-    </br>
-    <h2>Sample Image</h2>
-    <p>This is how you use the image shortcode:</p>
-    {% image "src/assets/images/webbie-logo.png", "Description of image", "your-image-classes-here" %}
+
+<style>
+    .index-form-iframe {
+        width: 100%;
+        height: 1740px;
+        border: none;
+        border-radius: 3px;
+    }
+
+    @media (min-width: 768px) {
+        .index-form-iframe {
+            height: 1200px;
+        }
+    }
+</style>
+
+<section class="relative">
+    <div class="absolute inset-0 overflow-hidden">
+        <video autoplay muted loop playsinline poster="/assets/images/landing.webp" preload="metadata"
+            class="hidden lg:block w-full h-full object-cover">
+            <source src="/assets/videos/home_desktop.mp4" type="video/mp4">
+        </video>
+
+        <video autoplay muted loop playsinline poster="/assets/images/landing.webp" preload="metadata"
+            class="block lg:hidden w-full h-full object-cover">
+            <source src="/assets/videos/home_mobile.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="absolute inset-0 bg-[#001125]/50"></div>
+    <div class="relative container mx-auto">
+        <div class="flex flex-col gap-[80px] py-[100px]">
+            <h1 class="heading-semibold text-navy-0">
+                Powering Northern Ireland with Expert Solar Solutions.
+            </h1>
+            <div class="flex flex-col lg:flex-row gap-[12px]">
+                <a href="domestic"
+                    class="group cursor-pointer flex flex-col p-[24px] gap-[40px] border-[1px] border-navy-0 rounded-[24px] w-full bg-navy-1000/80 hover:bg-linear-to-r from-light-blue-1000 to-dark-blue-1000 text-navy-0">
+                    <div class="flex flex-col gap-[12px]">
+                        <img src="./assets/svgs/domestic.svg" alt="" class="w-[32px]" />
+                        <div>
+                            <p class="text-xs-extralight text-navy-0">Solutions for</p>
+                            <p class="title-medium text-navy-0">Domestic</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-[8px]">
+                        <p class="text-sm-light text-navy-0">Learn more</p>
+                        <img src="./assets/svgs/arrow.svg" alt=""
+                            class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px]" />
+                    </div>
+                </a>
+                <a href="/commercial"
+                    class="group cursor-pointer flex flex-col p-[24px] gap-[40px] border-[1px] border-navy-0 rounded-[24px] w-full bg-navy-1000/80 hover:bg-linear-to-r from-light-blue-1000 to-dark-blue-1000 text-navy-0">
+                    <div class="flex flex-col gap-[12px]">
+                        <img src="./assets/svgs/commercial.svg" alt="" class="w-[32px]" />
+                        <div>
+                            <p class="text-xs-extralight text-navy-0">Solutions for</p>
+                            <p class="title-medium text-navy-0">Commercial</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-[8px]">
+                        <p class="text-sm-light text-navy-0">Learn more</p>
+                        <img src="./assets/svgs/arrow.svg" alt=""
+                            class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px]" />
+                    </div>
+                </a>
+                <a href="/agriculture"
+                    class="group cursor-pointer flex flex-col p-[24px] gap-[40px] border-[1px] border-navy-0 rounded-[24px] w-full bg-navy-1000/80 hover:bg-linear-to-r from-light-blue-1000 to-dark-blue-1000 text-navy-0">
+                    <div class="flex flex-col gap-[12px]">
+                        <img src="./assets/svgs/agriculture.svg" alt="" class="w-[32px]" />
+                        <div>
+                            <p class="text-xs-extralight text-navy-0">Solutions for</p>
+                            <p class="title-medium text-navy-0">Agriculture</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-[8px]">
+                        <p class="text-sm-light text-navy-0">Learn more</p>
+                        <img src="./assets/svgs/arrow.svg" alt=""
+                            class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px]" />
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-navy-1000">
+    <div class="container">
+        <div class="flex flex-col gap-[40px] py-[100px]">
+            <h2 class="subheading-regular text-cyan-1000">Trusted, Experienced, People-Focused</h2>
+            <p class="text-lg-regular text-cyan-0">At Premier Electrical Group, we’re proud to be one of Northern
+                Ireland’s
+                leading solar and electrical
+                specialists. With years of experience, a dedicated local team, and a reputation for honest, professional
+                service, we help homes, businesses, and agricultural properties take control of their energy.
+            </p>
+            <p class="text-lg-regular text-cyan-0">
+                From expert solar panel installations to EV chargers, heat pumps, and electrical maintenance, we provide
+                reliable, future-focused solutions, always delivered with care, technical expertise, and a friendly,
+                people-first approach. Whether you’re exploring renewable energy for the first time or looking to
+                upgrade your
+                existing system, we’re here to guide you every step of the way.</p>
+        </div>
+        <hr class="text-dark-blue-200 border-[1px]" />
+    </div>
+</section>
+
+<section class="bg-navy-1000">
+    <div class="container">
+        <div class="flex flex-col lg:flex-row justify-between gap-[80px] py-[100px]">
+            <div class="flex flex-col flex-1 gap-[40px] h-full lg:sticky lg:top-[100px]">
+                <div class="flex flex-col gap-[24px]">
+                    <h2 class="subheading-regular text-cyan-1000">Why go solar?</h2>
+                    <p class="text-lg-regular text-cyan-0">Solar energy is a smart investment for your property, your
+                        finances,
+                        and the
+                        planet. Here’s how we help you
+                        make the most of it:</p>
+                </div>
+                <div>
+                    <a href="/contact" class="button-primary">Speak to our Expert Team</a>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-[60px] flex-1">
+                <div class="flex flex-col gap-[20px]">
+                    <div class="flex flex-col gap-[12px]">
+                        <img src="/assets/svgs/piggy-bank.svg" alt="" class="w-[36px] text-cyan-1000" />
+                        <h3 class="title-medium text-cyan-1000">Lower Electricity Bills</h3>
+                    </div>
+                    <p class="text-lg-light text-cyan-0">Reduce your energy costs and take control of your electricity
+                        spend.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-[20px]">
+                    <div class="flex flex-col gap-[12px]">
+                        <img src="/assets/svgs/cloud.svg" alt="" class="w-[36px] text-cyan-1000" />
+                        <h3 class="title-medium text-cyan-1000">Reduce Your Emissions</h3>
+                    </div>
+                    <p class="text-lg-light text-cyan-0">Generate clean, renewable energy and lower your environmental
+                        impact.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-[20px]">
+                    <div class="flex flex-col gap-[12px]">
+                        <img src="/assets/svgs/battery.svg" alt="" class="w-[36px] text-cyan-1000" />
+                        <h3 class="title-medium text-cyan-1000">Your Path Towards Energy Independence</h3>
+                    </div>
+                    <p class="text-lg-light text-cyan-0">Reduce reliance on the grid with smart, self-sufficient energy
+                        solutions.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-[20px]">
+                    <div class="flex flex-col gap-[12px]">
+                        <img src="/assets/svgs/chart.svg" alt="" class="w-[36px] text-cyan-1000" />
+                        <h3 class="title-medium text-cyan-1000">Improve Your Property’s EPC Rating</h3>
+                    </div>
+                    <p class="text-lg-light text-cyan-0">Boost your property’s energy rating and long-term value.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-[20px]">
+                    <div class="flex flex-col gap-[12px]">
+                        <img src="/assets/svgs/bank-note.svg" alt="" class="w-[36px] text-cyan-1000" />
+                        <h3 class="title-medium text-cyan-1000">Low Maintenance Costs</h3>
+                    </div>
+                    <p class="text-lg-light text-cyan-0">Enjoy reliable solar performance with minimal ongoing upkeep.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-[20px]">
+                    <div class="flex flex-col gap-[12px]">
+                        <img src="/assets/svgs/time.svg" alt="" class="w-[36px] text-cyan-1000" />
+                        <h3 class="title-medium text-cyan-1000"> Quick, Hassle-Free Installation </h3>
+                    </div>
+                    <p class="text-lg-light text-cyan-0">Fast, professional installation with minimal disruption to your
+                        property.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+</section>
+
+{% include "solar-installation.njk" %}
+
+<section class="bg-white py-[100px] gap-[100px]">
+    <div class="container gap-[40px] flex flex-col">
+        <div class="flex">
+            <h2 class="subheading-regular text-navy-1000">CERTIFICATIONS</h2>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-[40px] justify-items-center items-center">
+            <img src="/assets/images/mcsLogo.webp" alt="MCS Certified" class="w-[145px]" />
+            <img src="/assets/images/reccLogo.webp" alt="RECC Renewable Energy Consumer Code" class="w-[145px]" />
+            <img src="/assets/images/niceicLogo.webp" alt="NICEIC Approved Contractor" class="w-[145px]" />
+            <img src="/assets/images/SSIPLogo.webp" alt="SSIP Accredited Member Scheme" class="w-[145px]" />
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-[40px] justify-items-center items-center">
+            <img src="/assets/images/safeContractor.webp" alt="SafeContractor Approved"
+                class="w-[145px] lg:col-start-2" />
+            <img src="/assets/images/safetcer.webp" alt="SafeCert Safety Management Certified System"
+                class="w-[145px] lg:col-start-3" />
+        </div>
+    </div>
+</section>
+
+<section class="bg-navy-1000">
+    <div class="container py-[100px]">
+        <div class="flex flex-col gap-[32px] items-center">
+            <div class="w-full max-w-[800px] mx-auto">
+                <h3 class="subheading-regular text-cyan-1000 text-left">
+                    Get in Touch
+                </h3>
+            </div>
+            <iframe src="https://app.premierelectricalgroup.co.uk/widget/form/EOdQKvRZP5PGGH8qzQ1B"
+                class="index-form-iframe" id="inline-EOdQKvRZP5PGGH8qzQ1B" data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated"
+                data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value=""
+                data-form-name="Website Form" data-height="1322" data-layout-iframe-id="inline-EOdQKvRZP5PGGH8qzQ1B"
+                data-form-id="EOdQKvRZP5PGGH8qzQ1B" title="Website Form"></iframe>
+        </div>
+    </div>
 </section>

@@ -1,0 +1,404 @@
+---
+layout: base/base.njk
+title: "About Premier Electrical Group | Solar & Electrical Experts in NI"
+description: "Discover Premier Electrical Group’s mission, values and expertise in delivering solar and electrical
+solutions across Northern Ireland. Meet the team behind the work."
+---
+
+<section class="relative bg-[url(/assets/images/aboutLanding.webp)] bg-no-repeat bg-cover bg-[position:center_70%]">
+  <div class="bg-[#001125]/50">
+    <div class="container flex items-end min-h-[440px]">
+      <div class="w-full gap-[80px] py-[100px]">
+        <h1 class="heading-semibold text-navy-0">Trusted Installers in Northern Ireland Since 2011</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy-1000">
+  <div class="container gap-[112px] py=[100px]">
+    <div class="flex flex-col gap-[30px] py-[100px]">
+      <p class="text-lg-regular text-cyan-0">At Premier Electrical Group, we deliver smart, sustainable solar energy
+        solutions for homes,
+        farms, and businesses across Northern Ireland. Based in Ballynahinch, County Down,
+        we're proud to be one of the longest-standing solar panel installers in the region,
+        offering expert service, innovative technology, and a people-first approach. </p>
+      <p class="text-lg-regular text-cyan-0"> With over 25 years of experience in electrical and solar service, we've
+        helped thousands of customers reduce their electricity bills,
+        lower emissions, and take control of their energy. Whether you're looking to install a full solar panel system,
+        add battery storage, or explore EV chargers and heat pumps, we provide tailored renewable energy solutions
+        that work for your property and your future.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy-1000">
+  <div class="container gap-[112px]">
+    <div class="flex flex-col">
+      <div class="flex flex-col gap-[16px] pb-[100px] pt-[20px]">
+        <div class="flex flex-col accordion w-full gap-[16px]">
+          {% for item in accordionItems %}
+          <div class="w-full flex flex-col border-b border-navy-200
+            {% if loop.first %} pt-[20px] {% endif %} pb-[20px]
+              {% if loop.first %} border-t {% endif %}">
+
+            <button
+              class="accordion-header w-full flex justify-between gap-[12px] items-center text-left cursor-pointer"
+              aria-expanded="{% if loop.first %}true{% else %}false{% endif %}" data-accordion-trigger>
+              <span class="subheading-regular text-cyan-1000">{{ item.title }}</span>
+              <img data-icon-plus src="/assets/svgs/plus-circle.png" alt="Expand"
+                class="lg:w-[30px] lg:h-[30px] w-[20px] h-[20px] {% if loop.first %}hidden{% else %}block{% endif %}" />
+              <img data-icon-minus src="/assets/svgs/minus-circle.png" alt="Collapse"
+                class="lg:w-[30px] lg:h-[30px] w-[20px] h-[20px] {% if loop.first %}block{% else %}hidden{% endif %}" />
+            </button>
+
+            <div
+              class="w-full accordion-content overflow-hidden transition-[max-height] duration-500 ease-in-out flex flex-col gap-[20px]"
+              data-accordion-content style="max-height: 0">
+              <div class="w-full lg:w-[800px] title-medium text-navy-400 flex flex-col">
+                {% if item.subtitle %}
+                {{ item.subtitle | safe }}
+                {% endif %}
+              </div>
+              <div class="w-full lg:w-[800px] text-lg-regular text-navy-200 gap-[20px] flex flex-col">
+                {% if item.items %}
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-[40px]">
+                  {% for listItem in item.items %}
+                  <div class="flex flex-col items-start gap-[12px]">
+                    <div class="w-8 h-8">
+                      {{ listItem.svg | safe }}
+                    </div>
+                    <p class="text-lg-medium text-navy-0 leading-[8px]!">{{ listItem.title }}</p>
+                    <p class="text-lg-regular text-navy-400">{{ listItem.description }}</p>
+                  </div>
+                  {% endfor %}
+                </div>
+                {% else %}
+                {% for para in item.content %}
+                <p>{{ para | safe }}</p>
+                {% endfor %}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll("[data-accordion-trigger]").forEach((button, index) => {
+              const content = button.nextElementSibling;
+              const iconPlus = button.querySelector("[data-icon-plus]");
+              const iconMinus = button.querySelector("[data-icon-minus]");
+
+              if (index === 0) {
+                content.style.maxHeight = content.scrollHeight + "px";
+                button.setAttribute("aria-expanded", "true");
+                iconPlus.classList.add("hidden");
+                iconMinus.classList.remove("hidden");
+              }
+
+              button.addEventListener("click", () => {
+                const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+                if (isExpanded) {
+                  content.style.maxHeight = "0";
+                  button.setAttribute("aria-expanded", "false");
+                  iconPlus.classList.remove("hidden");
+                  iconMinus.classList.add("hidden");
+                } else {
+                  content.style.maxHeight = content.scrollHeight + "px";
+                  button.setAttribute("aria-expanded", "true");
+                  iconPlus.classList.add("hidden");
+                  iconMinus.classList.remove("hidden");
+                }
+              });
+            });
+          });
+        </script>
+      </div>
+    </div>
+</section>
+
+<section id="stats-section" class="bg-cyan-1000">
+  <div class="container py-[100px]">
+    <div class="flex flex-col lg:flex-row gap-[90px] items-center justify-center">
+      <div class="flex flex-col gap-[20px] items-center">
+        <h1 id="counter1" class="heading-bold text-navy-1000">0</h1>
+        <p class="title-regular text-navy-1000">Installs in 2024</p>
+      </div>
+      <div class="flex flex-col gap-[20px] items-center">
+        <h1 id="counter2" class="heading-bold text-navy-1000">0</h1>
+        <p class="title-regular text-navy-1000">Panels Fitted in 2024</p>
+      </div>
+      <div class="flex flex-col gap-[20px] items-center">
+        <h2 id="counter3" class="heading-bold text-navy-1000">0</h2>
+        <p class="title-regular text-navy-1000">Total MW in 2024</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy-1000">
+  <div class="container py-[100px]">
+    <div class="flex flex-col gap-[100px]">
+      <div class="flex flex-col gap-[40px]">
+        <h2 class="subheading-regular text-cyan-1000">Our Core Values.</h2>
+
+        <div class="flex flex-col gap-[40px]">
+          <p class="text-lg-regular text-cyan-0">At Premier Electrical Group, we believe in:</p>
+
+          <div class="flex flex-col gap-[32px]">
+            <p class="text-lg-regular text-cyan-0"><span
+                class="text-lg-semibold text-light-blue-600">Relationships:</span> Building real, long-term connections
+              with our customers</p>
+            <p class="text-lg-regular text-cyan-0"><span class="text-lg-semibold text-light-blue-600">Expertise:</span>
+              Delivering the highest level of knowledge and workmanship</p>
+            <p class="text-lg-regular text-cyan-0"><span class="text-lg-semibold text-light-blue-600">Kindness:</span>
+              Every interaction matters. We treat people with care and respect</p>
+          </div>
+        </div>
+      </div>
+      <hr class="text-dark-blue-200 border-[1px]" />
+      <div class="flex flex-col gap-[40px]">
+        <h2 class="subheading-regular text-cyan-1000">Let's Create a Brighter Future, Together.</h2>
+
+        <p class="text-lg-regular text-cyan-0"> Whether you're starting your solar journey or looking to upgrade your
+          system, we're here to help.
+          Contact our team today to learn more about our services or explore our sector pages to see how we're
+          helping homes, farms, and businesses across Northern Ireland power their futures with renewable energy. </p>
+
+        <div>
+          <a href="/contact" class="button-primary">Speak to our Expert Team</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-cyan-0">
+  <div class="flex flex-col gap-[60px] py-[100px] lg:pl-[286px] pl-[40px] lg:pr-[20px] pr-[10px]" id="timeline-wrapper">
+    <h2 class="subheading-regular text-navy-1000 gap-[32px]">OUR STORY</h2>
+    <div class="relative w-full">
+      <div class="flex flex-col gap-[60px]">
+
+        <div class="absolute top-[10px] -translate-y-1/2 left-[0px] right-[0px] bg--navy-1000">
+          <hr class="text-navy-1000 border-[1px]" />
+        </div>
+
+        <div id="timeline" class="flex overflow-x-auto scroll-smooth relative gap-[64px] text-left"
+          style="-ms-overflow-style: none; scrollbar-width: none;" onscroll="this.style.scrollbarWidth='none';">
+          <style>
+            #timeline::-webkit-scrollbar {
+              display: none;
+            }
+          </style>
+
+          <div class="flex-shrink-0 w-80 flex flex-col gap-[28px]">
+            <div class="relative z-9">
+              <svg class="w-6 h-6 border-4 border-navy-1000 rounded-full bg-white" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="white" />
+              </svg>
+            </div>
+            <div class="flex flex-col text-left gap-[10px]">
+              <p class="flex title-medium text-dark-blue-1000">1997</p>
+              <p class="flex text-navy-1000 text-sm-light">
+                In October 1997, our visionary directors laid the foundation for our company as an electrical business,
+                marking the beginning of our journey towards excellence in the energy sector.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex-shrink-0 w-80 flex flex-col gap-[28px]">
+            <div class="relative z-9">
+              <svg class="w-6 h-6 border-4 border-navy-1000 rounded-full bg-white" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="white" />
+              </svg>
+            </div>
+            <div class="flex flex-col text-left gap-[10px]">
+              <p class="title-medium text-dark-blue-1000">2011</p>
+              <p class="flex text-navy-1000 text-sm-light">
+                In October 2011, Premier Renewables was founded, with a dedicated focus on providing cutting-edge solar
+                solutions to meet the evolving energy needs of our clients.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex-shrink-0 w-80 flex flex-col gap-[28px]">
+            <div class="relative z-9">
+              <svg class="w-6 h-6 border-4 border-navy-1000 rounded-full bg-white" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="white" />
+              </svg>
+            </div>
+            <div class="flex flex-col text-left gap-[10px]">
+              <p class="title-medium text-dark-blue-1000">2016</p>
+              <p class="flex text-navy-1000 text-sm-light">
+                In September 2016, we celebrated our inaugural installation of a solar system at a UK school, achieved
+                through our valued partnership with Solar for Schools.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex-shrink-0 w-80 flex flex-col gap-[28px]">
+            <div class="relative z-9">
+              <svg class="w-6 h-6 border-4 border-navy-1000 rounded-full bg-white" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="white" />
+              </svg>
+            </div>
+            <div class="flex flex-col text-left gap-[10px]">
+              <p class="title-medium text-dark-blue-1000">2017</p>
+              <p class="flex text-navy-1000 text-sm-light">
+                In July 2017, we expanded our operations into the European market, embracing new opportunities and
+                extending our reach across borders.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="flex-shrink-0 w-80 flex flex-col gap-[28px]">
+            <div class="relative z-9">
+              <svg class="w-6 h-6 border-4 border-navy-1000 rounded-full bg-white" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="white" />
+              </svg>
+            </div>
+            <div class="flex flex-col text-left gap-[10px]">
+              <p class="title-medium text-dark-blue-1000">2018</p>
+              <p class="flex text-navy-1000 text-sm-light">
+                Undergoing a rebranding to Premier Electrical Group by our company directors Brendan O'Connor and Tommy
+                Walsh, we embarked on a new strategic journey, signalling a pivotal shift in our company's direction.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="flex-shrink-0 w-80 flex flex-col gap-[28px]">
+            <div class="relative z-9">
+              <svg class="w-6 h-6 border-4 border-navy-1000 rounded-full bg-white" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="white" />
+              </svg>
+            </div>
+            <div class="flex flex-col text-left gap-[10px]">
+              <p class="title-medium text-dark-blue-1000">2023</p>
+              <p class="flex text-navy-1000 text-sm-light">
+                Company milstone achieved! In 2023 alone, we installed more than 36,000 solar panels, setting the stage
+                for our ambitious plans in 2024.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-row gap-[12px]">
+          <button onclick="scrollTimeline(-1)" class="bg-navy-0 border rounded-full ">
+            <img src="/assets/svgs/aboutarrowleft.svg" alt="Previous" />
+          </button>
+          <button onclick="scrollTimeline(1)" class="bg-navy-0 border rounded-full">
+            <img src="/assets/svgs/aboutarrowright.svg" alt="Next" />
+          </button>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="bg-navy-1000">
+  <div class="container py-[100px] gap-[64px]">
+    <div class="flex flex-col gap-[64px]">
+      <div class="flex flex-col gap-[40px]">
+        <h2 class="subheading-regular text-cyan-1000">BESPOKE SOLUTIONS</h2>
+        <p class="text-lg-regular text-cyan-0">Custom PV Solar systems for homes, businesses, and farms. Optimising
+          efficiency, savings, and sustainability for every need.</p>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-[12px]">
+        <a href="/domestic"
+          class="px-[24px] py-[32px] rounded-[24px] w-full bg-[url(/assets/images/domesticSquare.webp)] bg-no-repeat bg-cover bg-center bg-opacity-25 text-navy-0 relative group cursor-pointer">
+          <div class="absolute inset-0 card-gradient"></div>
+          <div class="flex flex-col gap-[32px] justify-between h-full relative">
+            <div class="flex flex-col gap-[12px]">
+              <img src="/assets/svgs/domestic.svg" alt="" class="w-[32px]" />
+              <div>
+                <p class="text-xs-extralight text-navy-0">Solutions for</p>
+                <p class="title-medium text-navy-0">Domestic</p>
+              </div>
+            </div>
+            <div class="flex gap-[8px]">
+              <p class="text-sm-light text-navy-0">Learn more</p>
+              <img src="/assets/svgs/arrow.svg" alt=""
+                class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px]" />
+            </div>
+          </div>
+        </a>
+
+        <a href="/commercial"
+          class="group cursor-pointer px-[24px] py-[32px] rounded-[24px] w-full bg-[url(/assets/images/commercial.webp)] bg-no-repeat bg-cover bg-center text-navy-0 relative">
+          <div class="absolute inset-0 card-gradient"></div>
+          <div class="flex flex-col gap-[32px] justify-between h-full relative">
+            <div class="flex flex-col gap-[12px]">
+              <img src="/assets/svgs/commercial.svg" alt="" class="w-[32px]" />
+              <div>
+                <p class="text-xs-extralight text-navy-0">Solutions for</p>
+                <p class="title-medium text-navy-0">Commercial</p>
+              </div>
+            </div>
+            <div class="flex gap-[8px]">
+              <p class="text-sm-light text-navy-0">Learn more</p>
+              <img src="/assets/svgs/arrow.svg" alt=""
+                class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px]" />
+            </div>
+          </div>
+        </a>
+
+        <a href="/agriculture"
+          class="px-[24px] py-[32px] rounded-[24px] w-full bg-[url(/assets/images/agriculture.webp)] bg-no-repeat bg-cover bg-center bg-opacity-25 text-navy-0 relative group cursor-pointer">
+          <div class="absolute inset-0 card-gradient"></div>
+          <div class="flex flex-col justify-between h-full relative gap-[32px]">
+            <div class="flex flex-col gap-[12px]">
+              <img src="/assets/svgs/agriculture.svg" alt="" class="w-[32px]" />
+              <div>
+                <p class="text-xs-extralight text-navy-0">Solutions for</p>
+                <p class="title-medium text-navy-0">Agriculture</p>
+              </div>
+            </div>
+            <div class="flex gap-[8px]">
+              <p class="text-sm-light text-navy-0">Learn more</p>
+              <img src="/assets/svgs/arrow.svg" alt=""
+                class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px]" />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function scrollTimeline(direction) {
+    const timeline = document.getElementById('timeline');
+    const scrollAmount = 380;
+    timeline.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // grab constructor from global
+    const CountUpCtor = (window.countUp && window.countUp.CountUp) || window.CountUp;
+
+    const c1 = new CountUpCtor('counter1', 1018, { duration: 2 });
+    const c2 = new CountUpCtor('counter2', 24934, { duration: 2 });
+    const c3 = new CountUpCtor('counter3', 11.17, { duration: 2, decimalPlaces: 2 });
+
+    const section = document.getElementById("stats-section");
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      if (entries[0].isIntersecting) {
+        if (!c1.error) c1.start();
+        if (!c2.error) c2.start();
+        if (!c3.error) c3.start();
+        obs.disconnect(); // run only once
+      }
+    }, { threshold: 0.3 });
+
+    observer.observe(section);
+  });
+</script>

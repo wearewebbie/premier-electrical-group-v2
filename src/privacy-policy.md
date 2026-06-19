@@ -22,6 +22,7 @@ If you have any questions or concerns about this policy please contact us at {{ 
 **Business Name:** {{ site.title }}  
 **Website:** {{ site.url }}  
 {% if site.email %}**Email:** {{ site.email }}{% endif %}
+
 {% if site.phone %}**Phone:** {{ site.phone }}{% endif %}
 
 ## 3. What Information We Collect

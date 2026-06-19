@@ -7,7 +7,8 @@ export default {
     : process.env.CF_PAGES_URL || "http://localhost:8080",
   logo: "",
   image: "/assets/images/website-preview-image.png",
-  phone: "+44 28 9756 4046",
+  phoneUk: "+44 28 9756 4046",
+  phoneRoi: "+353 (89) 479 8529",
   email: "solar@premierelectricalgroup.co.uk",
   social: {
     instagram: "https://instagram.com/premierelectricalgrouplimited",
