@@ -1,0 +1,16 @@
+backend:
+  name: github
+  repo: wearewebbie/premier-electrical-group-v2
+  branch: main
+  base_url: https://premier-electrical-group.pages.dev
+  auth_endpoint: auth
+
+media_folder: "src/assets/images/uploads"
+
+collections:
+  - name: "roles"
+    label: "Job Roles"
+    folder: "src/content/roles"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
