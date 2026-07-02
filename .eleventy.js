@@ -81,7 +81,7 @@ export default function (eleventyConfig) {
 
     eleventyConfig.addCollection("roles", function (collectionApi) {
         return collectionApi
-            .getFilteredByGlob("src/content/roles/*.md")
+            .getFilteredByGlob("src/roles/*.md")
             .filter((role) => role.data.published)
             .sort((a, b) => a.data.title.localeCompare(b.data.title));
     });

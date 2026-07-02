@@ -11,7 +11,7 @@ collections:
   - name: "roles"
     label: "Job Roles"
     label_singular: "Job Role"
-    folder: "src/content/roles"
+    folder: "src/roles"
     create: true
     slug: "{{slug}}"
     summary: "{{title}} — {{location}}"
