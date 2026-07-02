@@ -87,7 +87,7 @@ description: ""
       <ul class="role-list">
         {% for role in collections.roles %}
         <li class="flex flex-col gap-[10px] group">
-          <a href="{ { role.url } }">
+          <a href="{{ role.url }}">
             <div class="flex flex-row justify-between gap-[10px] items-center py-[20px]">
               <div class="flex flex-col gap-[10px]">
                 <h3 class="title-medium text-navy-1000">{{ role.data.title }}</h3>
