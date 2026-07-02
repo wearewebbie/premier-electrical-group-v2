@@ -1,0 +1,5 @@
+{
+    "layout": "role/role.njk",
+    "tags": "roles",
+    "permalink": "/careers/{{ page.fileSlug }}/"
+}
