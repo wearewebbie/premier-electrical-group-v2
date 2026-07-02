@@ -80,22 +80,47 @@ description: ""
 <!-- Open Roles -->
 <section class="bg-navy-0">
   <div class="container py-[100px]">
-    <h2 class="subheading-regular text-dark-blue-1000">Open Roles</h2>
+    <div class="flex flex-col gap-[20px]">
+      <h2 class="subheading-regular text-dark-blue-1000">Open Roles</h2>
 
-    {% if collections.roles | length %}
-    <ul class="role-list">
-      {% for role in collections.roles %}
-      <li class="role-card">
-        <h2><a href="{{ role.url }}">{{ role.data.title }}</a></h2>
-        <p class="role-meta">{{ role.data.location }} · {{ role.data.contract }}</p>
-        <a href="{{ role.url }}" class="role-link">View role &amp; apply</a>
-      </li>
-      {% endfor %}
-    </ul>
-    {% else %}
-    <p>There are no open positions at the moment. Please upload your CV at the bottom of the page and we will let you
-      know if a role becomes available that you are a good fit for.</p>
-    {% endif %}
+      {% if collections.roles | length %}
+      <ul class="role-list">
+        {% for role in collections.roles %}
+        <li class="flex flex-col gap-[10px] group">
+          <a href="{ { role.url } }">
+            <div class="flex flex-row justify-between gap-[10px] items-center py-[20px]">
+              <div class="flex flex-col gap-[10px]">
+                <h3 class="title-medium text-navy-1000">{{ role.data.title }}</h3>
+                <div class="flex flex-row gap-[20px] items-center">
+                  <div class="flex flex-row gap-[10px] items-center">
+                    <img src="/assets/svgs/tools.svg" alt="" class="w-[18px] text-navy-1000" />
+                    <p class="text-navy-1000 text-sm-light">{{ role.data.location }}</p>
+                  </div>
+                  <div class="flex flex-row gap-[10px]">
+                    <img src="/assets/svgs/tools.svg" alt="" class="w-[18px] text-navy-1000" />
+                    <p class="text-navy-1000 text-sm-light">{{ role.data.contract }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class=" flex gap-[8px]">
+                <p class="text-sm-light text-navy-1000">View role &amp; apply</p>
+                <svg class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px] text-navy-1000"
+                  viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.66797 7H17.668M17.668 7L11.668 1M17.668 7L11.668 13" stroke="currentColor"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
+            <hr class="text-dark-blue-200 border-[1px]" />
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>There are no open positions at the moment. Please upload your CV at the bottom of the page and we will let you
+        know if a role becomes available that you are a good fit for.</p>
+      {% endif %}
+    </div>
   </div>
 </section>
 
