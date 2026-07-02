@@ -88,7 +88,7 @@ description: ""
         {% for role in collections.roles %}
         <li class="flex flex-col gap-[10px] group">
           <a href="{{ role.url }}">
-            <div class="flex flex-row justify-between gap-[10px] items-center py-[20px]">
+            <div class="flex flex-col lg:flex-row justify-between gap-[20px] lg:items-center py-[20px]">
               <div class="flex flex-col gap-[10px]">
                 <h3 class="title-medium text-navy-1000">{{ role.data.title }}</h3>
                 <div class="flex flex-row gap-[20px] items-center">
@@ -103,7 +103,7 @@ description: ""
                 </div>
               </div>
               <div class=" flex gap-[8px]">
-                <p class="text-sm-light text-navy-1000">View role &amp; apply</p>
+                <p class="text-sm-bold text-navy-1000">View role &amp; apply</p>
                 <svg class="w-[16px] transition duration-300 ease-out group-hover:translate-x-[8px] text-navy-1000"
                   viewBox="0 0 19 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1.66797 7H17.668M17.668 7L11.668 1M17.668 7L11.668 13" stroke="currentColor"
