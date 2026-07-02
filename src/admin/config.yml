@@ -10,7 +10,32 @@ media_folder: "src/assets/images/uploads"
 collections:
   - name: "roles"
     label: "Job Roles"
+    label_singular: "Job Role"
     folder: "src/content/roles"
     create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{location}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Contract", name: "contract", widget: "string", default: "Full-Time Role" }
+      - { label: "Published", name: "published", widget: "boolean", default: false }
+      - { label: "About PEG", name: "about", widget: "markdown" }
+      - { label: "Role Overview", name: "overview", widget: "markdown" }
+      - label: "Responsibilities"
+        name: "responsibilities"
+        widget: "list"
+        field: { label: "Item", name: "item", widget: "string" }
+      - label: "Essential"
+        name: "essential"
+        widget: "list"
+        field: { label: "Item", name: "item", widget: "string" }
+      - label: "Desirable"
+        name: "desirable"
+        widget: "list"
+        required: false
+        field: { label: "Item", name: "item", widget: "string" }
+      - label: "Benefits"
+        name: "benefits"
+        widget: "list"
+        field: { label: "Item", name: "item", widget: "string" }
