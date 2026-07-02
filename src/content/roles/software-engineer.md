@@ -2,7 +2,7 @@
 title: Software Engineer
 location: Ballynahinch
 contract: Full-Time Role
-published: false
+published: true
 about: This is a test
 overview: Role overview information is stored here
 responsibilities:
