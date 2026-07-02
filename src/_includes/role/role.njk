@@ -1,0 +1,54 @@
+---
+layout: base/base.njk
+title: "{{ title }} | Premier Electrical Group Careers"
+description: "{{ title }} — {{ location }}. Join the team at Premier Electrical Group."
+---
+
+<section class="relative bg-[url(/assets/images/landing.webp)] bg-no-repeat bg-cover bg-center">
+    <div class="bg-[#001125]/50">
+        <div class="container mx-auto">
+            <div class="w-full pt-[140px] pb-[60px] flex flex-col gap-[40px]">
+                <h1 class="heading-semibold text-navy-0">{{ title }}</h1>
+                <p class="text-sm-light text-cyan-1000">{{ location }} · {{ contract }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% block body %}
+<div class="container py-[60px] lg:py-[100px] min-h-screen">
+    <div class="markdown-isolated">
+        <article>
+            {{ about | safe }}
+
+            <h2>Role Overview</h2>
+            {{ overview | safe }}
+
+            <h2>Key Responsibilities</h2>
+            <ul>
+                {% for item in responsibilities %}<li>{{ item }}</li>{% endfor %}
+            </ul>
+
+            <h2>Essential</h2>
+            <ul>
+                {% for item in essential %}<li>{{ item }}</li>{% endfor %}
+            </ul>
+
+            {% if desirable and desirable | length %}
+            <h2>Desirable</h2>
+            <ul>
+                {% for item in desirable %}<li>{{ item }}</li>{% endfor %}
+            </ul>
+            {% endif %}
+
+            <h2>Benefits</h2>
+            <ul>
+                {% for item in benefits %}<li>{{ item }}</li>{% endfor %}
+            </ul>
+
+            <h2>Apply</h2>
+            {# GHL application form embed goes here #}
+        </article>
+    </div>
+</div>
+{% endblock %}

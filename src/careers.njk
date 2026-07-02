@@ -78,11 +78,24 @@ description: ""
 </section>
 
 <!-- Open Roles -->
-
 <section class="bg-navy-0">
   <div class="container py-[100px]">
     <h2 class="subheading-regular text-dark-blue-1000">Open Roles</h2>
 
+    {% if collections.roles | length %}
+    <ul class="role-list">
+      {% for role in collections.roles %}
+      <li class="role-card">
+        <h2><a href="{{ role.url }}">{{ role.data.title }}</a></h2>
+        <p class="role-meta">{{ role.data.location }} · {{ role.data.contract }}</p>
+        <a href="{{ role.url }}" class="role-link">View role &amp; apply</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>There are no open positions at the moment. Please upload your CV at the bottom of the page and we will let you
+      know if a role becomes available that you are a good fit for.</p>
+    {% endif %}
   </div>
 </section>
 
@@ -179,19 +192,3 @@ description: ""
     animation: scroll 50s linear infinite;
   }
 </style>
-
-
-Training & Development
-We encourage continuous learning with ongoing training, certifications, and hands-on experience across a variety of
-commercial and industrial projects.
-
-Good People, Great Culture
-We work hard, but we also make time to enjoy ourselves. From team outings and social events to celebrating milestones
-together, we're building a workplace where people genuinely enjoy being part of the team.
-
-Private Healthcare
-We care about the wellbeing of our team. That's why we offer private healthcare, giving you access to additional medical
-support and helping you look after your health when you need it most.
-
-Pension Scheme
-Benefit from a workplace pension scheme designed to help you save for the future.

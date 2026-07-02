@@ -79,6 +79,13 @@ export default function (eleventyConfig) {
         collectionApi.getFilteredByTag("posts").sort((a, b) => b.data.date - a.data.date)
     );
 
+    eleventyConfig.addCollection("roles", function (collectionApi) {
+        return collectionApi
+            .getFilteredByGlob("src/content/roles/*.md")
+            .filter((role) => role.data.published)
+            .sort((a, b) => a.data.title.localeCompare(b.data.title));
+    });
+
     eleventyConfig.addPassthroughCopy("src/css");
     eleventyConfig.addPassthroughCopy("src/js");
     eleventyConfig.addPassthroughCopy("src/assets");
