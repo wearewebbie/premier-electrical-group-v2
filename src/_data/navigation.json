@@ -16,8 +16,9 @@
         "url": "/team"
       },
       {
-        "label": "Careers",
-        "url": "/careers"
+        "label": "Blog",
+        "url": "/blog",
+        "matchPrefix": true
       }
     ]
   },
@@ -56,9 +57,8 @@
     "url": "/pv-solar-power"
   },
   {
-    "label": "Blog",
-    "url": "/blog",
-    "matchPrefix": true
+    "label": "Careers",
+    "url": "/careers"
   },
   {
     "label": "Get in Touch",
