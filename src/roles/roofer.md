@@ -1,7 +1,7 @@
 ---
 title: Roofer
-location: Ballynahinch, Co. Down (travel throughout Northern Ireland and
-  occasional travel to Great Britain may be required)
+location: Ballynahinch, Co. Down - Travel throughout Northern Ireland and
+  occasional travel to Great Britain may be required
 contract: Full-Time Role
 published: true
 about: >-
