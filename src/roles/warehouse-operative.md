@@ -1,6 +1,6 @@
 ---
 title: Warehouse Operative
-location: Ballynahinch Co. Down
+location: Ballynahinch, Co. Down
 contract: Full-Time Role
 published: true
 about: Premier Electrical Group is a growing renewable energy company
@@ -34,11 +34,11 @@ essential:
   - Ability to work independently and manage daily responsibilities.
   - Good communication and teamwork skills.
   - Physically capable of safely handling and moving warehouse materials.
-  - Forklift licence or previous forklift experience.
 desirable:
   - Previous experience ordering stock and working with suppliers.
   - Experience within the solar, electrical, construction or renewable energy
     industry.
+  - Forklift licence or previous forklift experience.
 benefits:
   - Excellent rates of pay, depending on experience.
   - Company pension.
