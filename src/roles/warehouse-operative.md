@@ -1,6 +1,6 @@
 ---
 title: Warehouse Operative
-location: Ballynahinch
+location: Ballynahinch Co. Down
 contract: Full-Time Role
 published: true
 about: Premier Electrical Group is a growing renewable energy company
