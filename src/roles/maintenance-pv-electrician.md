@@ -1,7 +1,6 @@
 ---
 title: Maintenance PV Electrician
-location: Ballynahinch, Co. Down - Travel throughout Northern Ireland and
-  occasional travel to Great Britain may be required.
+location: Ballynahinch, Co. Down
 contract: Full-Time Role
 published: true
 about: >-
@@ -40,8 +39,6 @@ essential:
   - Full UK driving licence.
   - Strong problem solving skills.
   - Ability to work independently and as part of a team.
-  - Willingness to travel throughout Northern Ireland and occasionally to Great
-    Britain when required.
 desirable:
   - Experience maintaining solar PV systems.
   - Testing and Inspection qualification (2391 or equivalent).
