@@ -1,7 +1,6 @@
 ---
 title: Roofer
-location: Ballynahinch, Co. Down - Travel throughout Northern Ireland and
-  occasional travel to Great Britain may be required
+location: "Ballynahinch, Co. Down "
 contract: Full-Time Role
 published: true
 about: >-
@@ -38,8 +37,6 @@ responsibilities:
     sites.
 essential:
   - Previous roofing experience (essential).
-  - Willingness to travel throughout Northern Ireland and Flexibility to travel
-    to Great Britain when required.
   - Full UK driving licence.
   - Competent using hand and power tools.
   - Good understanding of health and safety practices.
