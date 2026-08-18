@@ -1,7 +1,6 @@
 ---
 title: Electrician (Solar Installations)
-location: Ballynahinch, Co. Down - Travel throughout Northern Ireland and
-  occasional travel to Great Britain may be required.
+location: Ballynahinch, Co. Down
 contract: Full-Time Role
 published: true
 about: >-
@@ -35,14 +34,11 @@ responsibilities:
   - Represent Premier Electrical Group professionally on customer sites.
 essential:
   - Fully qualified Electrician (NVQ Level 3 or equivalent).
-  - 18th Edition Wiring Regulations.
   - Full UK driving licence.
   - Competent using electrical testing equipment.
   - Ability to work independently and as part of a team.
   - Good communication skills.
   - Strong attention to detail.
-  - Willingness to travel throughout Northern Ireland and occasionally to Great
-    Britain when required.
 desirable:
   - Experience with solar PV installations.
   - Testing and Inspection qualification (2391 or equivalent).
