@@ -1,7 +1,6 @@
 ---
 title: Roofing Labourer
-location: Ballynahinch, Co. Down - Travel throughout Northern Ireland and
-  occasional travel to Great Britain may be required.
+location: "Ballynahinch, Co. Down "
 contract: Full-Time Role
 published: true
 about: >-
@@ -36,8 +35,6 @@ essential:
   - Good communication skills.
   - Reliable, hardworking and punctual.
   - Ability to work well as part of a team.
-  - Willingness to travel throughout Northern Ireland and occasionally to Great
-    Britain when required.
 desirable:
   - Experience working on roofing projects.
   - Experience assisting with solar PV installations.
