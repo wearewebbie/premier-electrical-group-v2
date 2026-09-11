@@ -2,7 +2,7 @@
 title: Domestic Solar PV Electrician
 location: Dublin
 contract: Full-Time Role
-published: false
+published: true
 about: Premier Electrical Group is one of Ireland's leading renewable energy
   specialists, providing high quality solar PV, battery storage and EV charging
   solutions for domestic, commercial and agricultural customers. Our mission is
