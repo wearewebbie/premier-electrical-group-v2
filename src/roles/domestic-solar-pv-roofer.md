@@ -2,7 +2,7 @@
 title: Domestic Solar PV Roofer
 location: Dublin
 contract: Full-Time Role
-published: false
+published: true
 about: >-
   We are looking for a skilled and reliable Roofer to join our installation
   team, with a primary focus on domestic solar PV projects.
