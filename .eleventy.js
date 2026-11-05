@@ -42,7 +42,7 @@ export default function (eleventyConfig) {
     });
 
     eleventyConfig.addShortcode('ghlForm', function (formUrl) {
-        return `<div class="ghl-form-wrapper"><iframe src="${formUrl}" class="ghl-form-iframe" frameborder="0" scrolling="no"></iframe></div>`;
+        return `<div class="ghl-form-wrapper"><iframe data-cookieconsent="ignore" src="${formUrl}" class="ghl-form-iframe" frameborder="0" scrolling="no"></iframe></div>`;
     });
 
     eleventyConfig.addFilter("lastModifiedDate", function (filePath) {
