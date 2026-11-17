@@ -36,11 +36,11 @@ responsibilities:
   - Represent Premier Electrical Group professionally when working on customer
     sites.
 essential:
-  - Previous roofing experience (essential).
   - Full UK driving licence.
   - Competent using hand and power tools.
   - Good understanding of health and safety practices.
 desirable:
+  - Previous Roofing Experience
   - Experience working on solar PV installations.
   - Working at Height certification.
   - Experience with slate, tile or metal roofing systems.
